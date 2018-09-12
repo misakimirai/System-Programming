@@ -1,0 +1,70 @@
+/**
+* Teaching Threads Lab
+* CS 241 - Spring 2018
+*/
+
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "reduce.h"
+#include "reducers.h"
+
+/* You might need a struct for each task ... */
+typedef struct task{
+  pthread_t tid;
+  int base_case;
+  int *list;
+  reducer reduce_func;
+  int start;
+  int end;
+} task;
+
+/* You should create a start routine for your threads. */
+void* partial_task(void *para) {
+  int* result = malloc(sizeof(int));
+  *result = para->base_case;
+  for (size_t i = para->start; i < para->end; i++) {
+    *result = para->reduce_func(*result, list[i]);
+  }
+  return (void*)result;
+}
+
+int par_reduce(int *list, size_t list_len, reducer reduce_func, int base_case,
+               size_t num_threads) {
+    /* Your implementation goes here */
+    if (list_len < num_threads) {
+      int result = base_case;
+      for (size_t i = 0; i < length; ++i) {
+          result = reduce_func(result, list[i]);
+      }
+      return result;
+    }
+    int num = list_len / num_threads;
+    task* tasks[num_threads];
+    for (size_t i = 0; i < num_threads; i++) {
+      task *temp = (task*) malloc(sizeof(task));
+      temp->base_case = base_case;
+      temp->list = list;
+      temp->reduce_func = reduce_func;
+      temp->start = i * num;
+      if (i != num_threads - 1) {
+        temp->end = (i + 1) * num;
+      }
+      else {
+        temp->end = list_len;
+      }
+      pthread_create(&(temp->pid), NULL, partial_task, (void*)temp);
+    }
+    int result = base_case;
+    void* results[num_threads];
+    for (size_t i = 0; i < num_threads; i++) {
+      pthread_join(tasks[i]->tid, &results[i]);
+    }
+    for (size_t i = 0; i < length; ++i) {
+        result = reduce_func(result, *((int*)results[i]));
+    }
+    return result;
+}

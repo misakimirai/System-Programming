@@ -1,0 +1,422 @@
+[
+  {
+    "timestamp": "2018-01-20 22:00:02.889681",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput is in the wrong order :C\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsPossible": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "889"
+  },
+  {
+    "timestamp": "2018-01-22 22:00:03.138036",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput is in the wrong order :C\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsPossible": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "1513"
+  },
+  {
+    "timestamp": "2018-01-23 00:08:17.685748",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput correct\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsPossible": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "1513"
+  },
+  {
+    "timestamp": "2018-01-23 22:00:02.910255",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput correct\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsEarned": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "2217"
+  },
+  {
+    "timestamp": "2018-01-24 12:00:03.297960",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput correct\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsPossible": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsPossible": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "2547"
+  },
+  {
+    "timestamp": "2018-01-25 00:00:03.055231",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testCorrectOutput",
+        "description": "Test that the output file contains 5 first, 5 last, and rest of the file wrapped",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testEmptyFile",
+        "description": "Test on empty file",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nProgram exited normally!\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testFileNotFound",
+        "description": "Test that program does not crash on files that don't exist",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testFileOverwritten",
+        "description": "Tests that enough random bytes were written to cover the file",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testMemory",
+        "description": "Test for memory errors or leaks with Valgrind",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nOutput correct\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "name": "testPrintOut",
+        "description": "Test that the address space is printed out",
+        "ptsEarned": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testRandomSize",
+        "description": "Test that the randomly written files are the same size as the old file",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testUsage",
+        "description": "Test invalid command usage",
+        "ptsEarned": 0.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 0.0,
+        "name": "testWrap",
+        "description": "Test that lines are wrapped to 80 characters max (excluding the newline)",
+        "ptsEarned": 0.0
+      }
+    ],
+    "checksum": "dd0307f12cbb0dfec7b5189d833d7e661f365b7c  read_wrap.c\n2bc3409e1110c5ce1d3d96efa75b8806849291ca  secure_move.c\n16da34ef6f6322bc5a6b068e3d2b558d9e9b9c20  shred.c\ncf308c84bd9a6f6e88da4523f4f8b77ca05c933b  utils.c\n",
+    "revision": "3221"
+  }
+]

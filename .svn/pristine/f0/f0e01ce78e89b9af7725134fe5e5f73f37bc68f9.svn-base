@@ -1,0 +1,72 @@
+[
+  {
+    "testcases": [
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Run a basic pied piper command (no failures)",
+        "name": "basic_test",
+        "ptsPossible": 1.0
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Tests that we try restart failed processes at most 3 times, and that no commands are run after a 3-time failed process",
+        "name": "failure_test",
+        "ptsPossible": 2.0
+      },
+      {
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==1193== Memcheck, a memory error detector\n==1193== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==1193== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==1193== Command: ./popen_hook ./pied_piper -i basic_input -o out cat grep\\ basic\n==1193== ",
+        "description": "Check for memory errors",
+        "name": "memory_test",
+        "ptsPossible": 1.0
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Test that processes are being restarted upon failing",
+        "name": "restart_test",
+        "ptsPossible": 1.0
+      }
+    ],
+    "checksum": "5a787f7b86f7b35eebf1690f034f246744e4681b  pied_piper.c\n",
+    "revision": "73735",
+    "timestamp": "2018-03-16 09:19:57.661593"
+  },
+  {
+    "checksum": "5a787f7b86f7b35eebf1690f034f246744e4681b  pied_piper.c\n",
+    "timestamp": "2018-03-16 22:00:03.184099",
+    "revision": "73780",
+    "testcases": [
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Run a basic pied piper command (no failures)",
+        "name": "basic_test",
+        "ptsPossible": 1.0
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Tests that we try restart failed processes at most 3 times, and that no commands are run after a 3-time failed process",
+        "name": "failure_test",
+        "ptsPossible": 2.0
+      },
+      {
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==1692== Memcheck, a memory error detector\n==1692== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==1692== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==1692== Command: ./popen_hook ./pied_piper -i basic_input -o out cat grep\\ basic\n==1692== ",
+        "description": "Check for memory errors",
+        "name": "memory_test",
+        "ptsPossible": 1.0
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "description": "Test that processes are being restarted upon failing",
+        "name": "restart_test",
+        "ptsPossible": 1.0
+      }
+    ]
+  }
+]

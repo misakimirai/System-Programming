@@ -1,0 +1,111 @@
+/**
+* Password Cracker Lab
+* CS 241 - Spring 2018
+*/
+
+#include "cracker1.h"
+#include "format.h"
+#include "utils.h"
+
+#include "queue.h"
+#include <crypt.h>
+#include <stdio.h>
+#include <string.h>
+
+size_t success;
+size_t total;
+queue *task_queue;
+
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
+void *helper(void *index) {
+  while (1) {
+    double time_start = getThreadCPUTime();
+    char *temp = (char *)queue_pull(task_queue);
+    if (!temp) {
+      // end
+      queue_push(task_queue, NULL);
+      break;
+    }
+    char *temp_task = strdup(temp);
+    char *temp_tok;
+    char *p = strtok_r(temp_task, " ", &strtok_ctx);
+    char *name = strdup(p);
+    p = strtok_r(NULL, " ", &strtok_ctx);
+    char *hash = strdup(p);
+    p = strtok_r(NULL, " ", &strtok_ctx);
+    char *known = strdup(p);
+    struct crypt_data data;
+    data.initialized = 0;
+    v1_print_thread_start((size_t)index, name);
+    int length = getPrefixLength(known);
+    setStringPosition(known + length, 0);
+    int found = 1;
+    int count = 0;
+    char *result = crypt_r(known, "xx", &data);
+    count++;
+    if (!strcmp(hash, result)) {
+      found = 0;
+    }
+    else {
+      while (incrementString(known + length) != 0) {
+        result = crypt_r(known, "xx", &data);
+        count++;
+        if (!strcmp(hash, result)) {
+          found = 0;
+          break;
+        }
+      }
+    }
+    if (!found) {
+      pthread_mutex_lock(&lock);
+      success++;
+      pthread_mutex_unlock(&lock);
+    }
+    // double duration = getThreadCPUTime() - time_start;
+    v1_print_thread_result((size_t)index, name, known, count, getThreadCPUTime() - time_start, found);
+    free(temp);
+    free(temp_task);
+    free(name);
+    free(hash);
+    free(known);
+  }
+  return NULL;
+}
+
+int start(size_t thread_count) {
+    // TODO your code here, make sure to use thread_count!
+    // Remember to ONLY crack passwords in other threads
+    pthread_t threads[thread_count];
+    task_queue = queue_create(-1);
+
+    for (size_t i = 0; i < thread_count; i++) {
+      pthread_create(threads + i, NULL, helper, (void*)(i + 1));
+    }
+
+    char *buffer = NULL;
+    size_t capacity = 0;
+    while (1) {
+      ssize_t size = getline(&buffer, &capacity, stdin);
+      if (size == -1) {
+          queue_push(task_queue, NULL);
+          free(buffer);
+          break;
+      }
+      if (size > 0 && buffer[size - 1] == '\n') {
+        buffer[size - 1] = '\0';
+      }
+      char *temp = strdup(buffer);
+      queue_push(task_queue, temp);
+      free(buffer);
+      capacity = 0;
+      total++;
+    }
+    void *retval[thread_count];
+    for (size_t i = 0; i < total; i++) {
+      pthread_join(threads[i], &retval[i]);
+    }
+    v1_print_summary(success, total - success);
+    return 0; // DO NOT change the return code since AG uses it to check if your
+              // program exited normally
+}

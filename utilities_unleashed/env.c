@@ -1,0 +1,140 @@
+/**
+* Utilities Unleashed Lab
+* CS 241 - Spring 2018
+*/
+#include "format.h"
+#include <stdio.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
+#include <sys/wait.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+
+int main(int argc, char *argv[]) {
+    int N = 1;
+    int start = 1;
+
+    // Find the number of valuds
+    if (argc < 3) {
+      print_env_usage();
+      return 1;
+    }
+
+    if (strcmp(argv[1], "-n") == 0) {
+      if (atoi(argv[2]) <= 0) {
+        print_env_usage();
+        return 1;
+      }
+      else {
+        N = atoi(argv[2]);
+        if (N == 1) {
+          print_env_usage();
+          return 1;
+        }
+        start = 3;
+      }
+    }
+
+    int cur = start;
+    int cmdInd = -1;
+    for (; cur < argc; cur++) {
+      if (strcmp(argv[cur], "--") == 0) {
+        cmdInd = cur + 1;  // execvp(argv[cmdInd], argv + cmdInd);
+        if (cur == argc - 1) {
+          // NO cmd
+          print_env_usage();
+          return 1;
+        }
+        break;
+      }
+      else {
+        char *temp = argv[cur];
+        int i = 0;
+        if (N == 1 && strchr(temp, ',')) {
+          print_env_usage();
+          return 1;
+        }
+        int comma = 0;
+        for (; i < (int)strlen(temp); i++) {
+          // Use of invalid characters
+          if (!isalpha(temp[i]) && !isdigit(temp[i]) && temp[i] != ',' && temp[i] != '%' && temp[i] != '_' && temp[i] != '=') {
+            print_env_usage();
+            return 1;
+          }
+          if (temp[i] == ',') {
+            comma++;
+          }
+        }
+        if (comma != 0 && comma != N -1) {
+          // fprintf(stderr, "%d", __LINE__);
+          print_env_usage();
+          return 1;
+        }
+      }
+    }
+    if (cmdInd == -1) {
+      // No "--"
+      print_env_usage();
+      return 1;
+    }
+
+    int status;
+    int j = 0;
+    char *token;
+    for (; j < N; j++) {
+      pid_t child = fork();
+      if (child == -1) {
+        print_fork_failed();
+        return 1;
+      }
+      if (child > 0) {
+        pid_t pid = waitpid(child, &status, 0);
+        if (pid == -1 || !WIFEXITED(status)) {
+          return 1;
+        }
+      }
+      else {
+        int k = start;
+        for (; k < cmdInd - 1; k++) {
+          char temp[strlen(argv[k]) + 1];
+          strcpy(temp, argv[k]);
+          token = strtok(temp, "=");
+          if (!token) {
+            print_env_usage();
+            return 1;
+          }
+          char *key = token;
+          char *value = strtok(NULL, "=");
+          if (!value) {
+            value = "";
+          }
+
+          char *first = strtok(value, ",");
+          char *value_set = first;
+          int l = 0;
+          for (; l < j; l++) {
+            value_set = strtok(NULL, ",");
+            if (!value_set) {
+              value_set = first;
+              break;
+            }
+          }
+          if (*value_set == '%') {
+            value_set = getenv(value_set + 1);
+            if (!value_set) {
+              value_set = "";
+            }
+          }
+          setenv(key, value_set, 1);
+        }
+        execvp(argv[cmdInd], argv + cmdInd);
+        print_exec_failed();
+        return 1;
+      }
+    }
+    return 0;
+}

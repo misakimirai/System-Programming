@@ -1,0 +1,189 @@
+/**
+* Password Cracker Lab
+* CS 241 - Spring 2018
+*/
+
+#include "cracker2.h"
+#include "format.h"
+#include "utils.h"
+
+#include <crypt.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "thread_status.h"
+
+pthread_barrier_t end_barrier;
+pthread_barrier_t start_barrier;
+pthread_mutex_t m;
+pthread_cond_t cv;
+int *count_array;
+int *found_array;
+size_t total_thread;
+int finish;
+char *curr_task;
+char *password;
+int writers;
+int writing;
+int reading;
+
+void *helper(void *ptr) {
+  size_t id = (size_t)ptr;
+  struct crypt_data cdata;
+  cdata.initialized = 0;
+  while (1) {
+    pthread_barrier_wait(&start_barrier);
+    if (curr_task == NULL) {
+        break;
+    }
+    char *temp_task = strdup(curr_task);
+    char *temp_tok;
+    char *p = strtok_r(temp_task, " ", &strtok_ctx);
+    char *name = strdup(p);
+    p = strtok_r(NULL, " ", &strtok_ctx);
+    char *hash = strdup(p);
+    p = strtok_r(NULL, " ", &strtok_ctx);
+    char *known = strdup(p);
+    long start_index;
+    long count;
+    int length = getPrefixLength(known);
+    getSubrange(strlen(known) - length, total_thread, (int)id, &start_index, &count);
+    setStringPosition(known + length, start_index);
+    v2_print_thread_start(id, name, start_index, known);
+
+    int my_found = 0;
+    long hash_count = 0;
+    // use the reader writer to set the flag indicating weather finish
+    for(; hash_count < count; hash_count++) {
+      int temp = 0; // get the value of finish
+      pthread_mutex_lock(&m);
+      while (writers) {
+        pthread_cond_wait(&cv, &m);
+      }
+      reading++;
+      pthread_mutex_unlock(&m);
+      temp = finish;
+      pthread_mutex_lock(&m);
+      reading--;
+      pthread_cond_broadcast(&cv);
+      pthread_mutex_unlock(&m);
+      if (temp) {
+        break;
+      }
+      char *hashed = crypt_r(known, "xx", &cdata);
+      if (strcmp(hash, hashed) == 0) {
+        // find the password
+        password = strdup(known);
+
+        my_found = 1;
+        pthread_mutex_lock(&m);
+        writers++;
+        while (reading || writing) {
+          pthread_cond_wait(&cv, &m);
+        }
+        writing++;
+        pthread_mutex_unlock(&m);
+        finish = 1;
+        pthread_mutex_lock(&m);
+        writing--;
+        writers--;
+        pthread_cond_broadcast(&cv);
+        pthread_mutex_unlock(&m);
+
+        hash_count++;
+        break;
+      }
+      else {
+        incrementString(known + length);
+      }
+    }
+    // check the condition
+    int print_result = 2;
+    if (my_found) {
+      print_result = 0;
+    }
+    else if (!my_found && hash_count < count - 1) {
+      print_result = 1;
+    }
+    found_array[id - 1] = my_found;
+    count_array[id - 1] = hash_count;
+
+    v2_print_thread_result(id, hash_count, print_result);
+    free(temp_task);
+    free(name);
+    free(hash);
+    free(known);
+    pthread_barrier_wait(&end_barrier);
+  }
+  return NULL;
+}
+
+int start(size_t thread_count) {
+    // TODO your code here, make sure to use thread_count!
+    // Remember to ONLY crack passwords in other threads
+    // remember the main thread
+    pthread_barrier_init(&end_barrier, NULL, thread_count + 1);
+    pthread_barrier_init(&start_barrier, NULL, thread_count + 1);
+    pthread_mutex_init(&m, NULL);
+    pthread_cond_init(&cv, NULL);
+    writers = 0;
+    writing = 0;
+    reading = 0;
+    count_array = (int *)malloc(thread_count * sizeof(int));
+    found_array = (int *)malloc(thread_count * sizeof(int));
+    total_thread = thread_count;
+    pthread_t threads[thread_count];
+    for (size_t i = 0; i < thread_count; i++) {
+      pthread_create(threads + i, NULL, helper, (void*)(i + 1));
+    }
+    char *buffer = NULL;
+    size_t capacity = 0;
+    while (1) {
+      double time_start = getTime();
+      double time_start_cpu = getCPUTime();
+      ssize_t size = getline(&buffer, &capacity, stdin);
+      if (size == -1) {
+        curr_task = NULL;
+        free(buffer);
+        pthread_barrier_wait(&start_barrier);
+        break;
+      }
+      else {
+        if (size > 0 && buffer[size - 1] == '\n') {
+          buffer[size - 1] = '\0';
+        }
+        curr_task = strdup(buffer);
+        char *name = strtok(buffer, " ");
+        v2_print_start_user(name);
+        finish = 0;
+        pthread_barrier_wait(&start_barrier);
+        pthread_barrier_wait(&end_barrier);
+        int total = 0;
+        int result = 0;
+        for (size_t i = 0; i < thread_count; i++) {
+            total += count_array[i];
+            result += found_array[i];
+        }
+        result = result == 1 ? 0 : 1;
+        v2_print_summary(name, password, total, getTime() - time_start, getCPUTime() - time_start_cpu, result);
+        if (!result) {
+          free(password);
+        }
+        free(curr_task);
+      }
+    }
+
+
+    void *temp[thread_count];
+    for (size_t i = 0; i < thread_count; i++) {
+        pthread_join(threads[i], &temp[i]);
+    }
+    pthread_barrier_destroy(&end_barrier);
+    pthread_barrier_destroy(&start_barrier);
+    pthread_mutex_destroy(&m);
+    pthread_cond_destroy(&cv);
+    free(count_array);
+    free(found_array);
+    return 0; // DO NOT change the return code since AG uses it to check if your
+              // program exited normally
+}

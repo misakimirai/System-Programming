@@ -1,0 +1,704 @@
+/**
+* Shell Lab
+* CS 241 - Spring 2018
+*/
+
+#include "format.h"
+#include "shell.h"
+#include "vector.h"
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <signal.h>
+#include <ctype.h>
+
+typedef struct process {
+    char *command;
+    char *status;
+    pid_t pid;
+} process;
+
+extern int opterr;
+static vector *history;
+static vector *processes;
+static char *hfile;
+static size_t original_size;
+static pid_t foreground;
+static int logical;
+static int fflag;
+static int hflag;
+static int exit_shell(int error);
+
+void *process_default_constructor(void){
+  process* result = malloc(sizeof(process));
+  result -> command = NULL;
+  result -> status = NULL;
+  result -> pid = 0;
+  return result;
+}
+
+void *process_copy_constructor(void *pro){
+  if (!pro) {
+    return process_default_constructor();
+  }
+  process* result = malloc(sizeof(process));
+  result -> command = strdup(((process*)pro) -> command);
+  // result -> status = strdup(((process *)pro)->status);
+  result -> status = ((process*)pro)->status;
+  result -> pid = ((process*)pro) -> pid;
+  return result;
+}
+
+void process_destructor(void *pro){
+  if (!pro) {
+    return;
+  }
+  free(((process*)pro) -> command);
+  // free(((process*)pro) -> status);
+  free(pro);
+}
+
+
+// -h
+void handle_history() {
+  FILE *file = fopen(hfile, "r");
+  if (!file) {
+    print_history_file_error();
+    exit_shell(0);
+  }
+  char *buffer = NULL;
+  size_t capacity = 0;
+  ssize_t size;
+  while (1) {
+    size = getline(&buffer, &capacity, file);
+    if (size == -1) {
+      break;
+    }
+    if (buffer[size - 1] == '\n') {
+      buffer[size - 1] = '\0';
+    }
+    vector_push_back(history, buffer);
+    original_size++;
+  }
+  free(buffer);
+  fclose(file);
+}
+
+// signals
+void handle_signal(int sig) {
+  for (size_t i = 0; i < vector_size(processes); i++) {
+    process *temp = vector_get(processes, i);
+    if (temp->pid == foreground) {
+      kill(foreground, SIGINT);
+      vector_erase(processes, i);
+    }
+  }
+}
+
+// SIGCHILD
+void handle_child(int sig) {
+  int status;
+  pid_t pid = waitpid(-1, &status, WNOHANG);
+  if (pid != -1) {
+    for (size_t i = 0; i < vector_size(processes); i++) {
+      process *temp = vector_get(processes, i);
+      if (temp->pid == pid) {
+        vector_erase(processes, i);
+      }
+    }
+  }
+}
+
+// exit_shell
+int exit_shell(int error) {
+  if (hflag) {
+    FILE *file = fopen(hfile, "a");
+    for (size_t i = original_size; i < vector_size(history); i++) {
+      fprintf(file, "%s\n", vector_get(history, i));
+    }
+    fclose(file);
+    free(hfile);
+  }
+  if (processes) {
+    for (size_t i = 1; i < vector_size(processes); i++) {
+      process *temp = (process*)vector_get(processes, i);
+      kill(temp->pid, SIGTERM);
+    }
+    vector_destroy(processes);
+  }
+  if (history) {
+    vector_destroy(history);
+  }
+  // fprintf(stderr, "%d \n", __LINE__);
+  exit(error);
+  //  fprintf(stderr, "%d\n", __LINE__);
+}
+
+int handle_command(char *row_command) {
+  // print("")
+  // fprintf(stderr, "row: %s\n", row_command);
+  char* dup_command = strdup(row_command);
+  // char* dup_command = row_command;
+  char* command = dup_command;
+  while (isspace(*command)) {
+    command++;
+  }
+  for (size_t i = strlen(command) - 1; i > 0; i--) {
+    if (!isspace(command[i])) {
+      command[i + 1] = '\0';
+      break;
+    }
+  }
+  if (fflag) {
+    print_command(command);
+  }
+  size_t num = 0;
+  char **split_command = strsplit(command, " ", &num);
+  char *name = split_command[0];
+
+
+  // fprintf(stderr, "not exit\n" );
+
+  // CD========================================================
+
+  if (!strcmp(name, "cd")) {
+    vector_push_back(history, row_command);
+    if (num != 2) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    char *path = get_full_path(split_command[1]);
+    int result = chdir(path);
+    if (result == -1) {
+      print_no_directory(split_command[1]);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    free(path);
+    // vector_push_back(history, row_command);
+    free(dup_command);
+    free_args(split_command);
+    return 0;
+  }
+
+  // !history===================================================
+
+  else if (!strcmp(name, "!history")) {
+    if (num != 1) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    for (size_t i = 0; i < vector_size(history); i++) {
+      print_history_line(i, vector_get(history, i));
+    }
+    free(dup_command);
+    free_args(split_command);
+    return 0;
+  }
+
+  // #<n>========================================================
+
+  else if (name[0] == '#') {
+    if (num != 1) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    int index = atoi(name + 1);
+    if (index >= (int)vector_size(history)) {
+      print_invalid_index();
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    char *real_command = vector_get(history, index);
+    print_command(real_command);
+    int error = handle_command(real_command);
+    // vector_push_back(history, real_command);
+    free(dup_command);
+    free_args(split_command);
+    return error;
+  }
+
+  // !<prefix>===================================================
+
+  else if (name[0] == '!') {
+    // if (num != 1) {
+    //   print_invalid_command(row_command);
+    //   free(dup_command);
+    //   free_args(split_command);
+    //   return 1;
+    // }
+    size_t size = vector_size(history);
+    if (!size) {
+      print_no_history_match();
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    if (!strcmp(split_command[0], "!")) {
+      // fprintf(stderr, "%d\n", __LINE__);
+      char *real_command = vector_get(history, size - 1);
+      print_command(real_command);
+      int error = handle_command(real_command);
+      // vector_push_back(history, real_command);
+      free(dup_command);
+      free_args(split_command);
+      return error;
+    }
+    for (size_t i = size - 1; (int)i >= 0; i--) {
+      // fprintf(stderr, "%d\n", __LINE__);
+      char *temp = vector_get(history, i);
+      char *find = strstr(temp, command + 1);
+      if (find && find == temp) {
+        // fprintf(stderr, "%d %zu\n", __LINE__, i);
+        print_command(temp);
+        int error = handle_command(temp);
+        // vector_push_back(history, temp);
+        free(dup_command);
+        free_args(split_command);
+        return error;
+      }
+    }
+    print_no_history_match();
+    free(dup_command);
+    free_args(split_command);
+    return 1;
+  }
+
+  // ps ====================================================
+
+  else if (!strcmp(name, "ps")) {
+    vector_push_back(history, row_command);
+    if (num != 1) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    for (size_t i = 0; i < vector_size(processes); i++) {
+      process *temp = vector_get(processes, i);
+      print_process_info(temp->status, temp->pid, temp->command);
+    }
+    free(dup_command);
+    free_args(split_command);
+    return 0;
+  }
+
+  // kill <pid> =============================================
+
+  else if (!strcmp(name, "kill")) {
+    vector_push_back(history, row_command);
+    if (num != 2) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    // vector_push_back(history, row_command);
+    for (size_t i = 0; i < vector_size(processes); i++) {
+      process *temp = (process*)vector_get(processes, i);
+      if (temp->pid == atoi(split_command[1])) {
+        if (kill(temp->pid, SIGTERM) < 0) {
+          break;
+        }
+        print_killed_process(temp->pid, command);
+        vector_erase(processes, i);
+        free(dup_command);
+        free_args(split_command);
+        return 0;
+      }
+    }
+    print_no_process_found(atoi(split_command[1]));
+    free(dup_command);
+    free_args(split_command);
+    return 1;
+  }
+
+  // stop <pid> =============================================
+
+  else if (!strcmp(name, "stop")) {
+    vector_push_back(history, row_command);
+    if (num != 2) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    // vector_push_back(history, row_command);
+    for (size_t i = 0; i < vector_size(processes); i++) {
+      process *temp = (process*)vector_get(processes, i);
+      if (temp->pid == atoi(split_command[1])) {
+        if (kill(temp->pid, SIGSTOP) < 0) {
+          break;
+        }
+        print_stopped_process(temp->pid, command);
+        temp->status = STATUS_STOPPED;
+        free(dup_command);
+        free_args(split_command);
+        return 0;
+      }
+    }
+    print_no_process_found(atoi(split_command[1]));
+    free(dup_command);
+    free_args(split_command);
+    return 1;
+  }
+
+  // cont <pid> =============================================
+
+  else if (!strcmp(name, "cont")) {
+    vector_push_back(history, row_command);
+    if (num != 2) {
+      print_invalid_command(row_command);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    // vector_push_back(history, row_command);
+    for (size_t i = 0; i < vector_size(processes); i++) {
+      process *temp = (process*)vector_get(processes, i);
+      if (temp->pid == atoi(split_command[1])) {
+        if (kill(temp->pid, SIGCONT) < 0) {
+          break;
+        }
+        temp->status = STATUS_RUNNING;
+        free(dup_command);
+        free_args(split_command);
+        return 0;
+      }
+    }
+    print_no_process_found(atoi(split_command[1]));
+    free(dup_command);
+    free_args(split_command);
+    return 1;
+  }
+
+  // exit ====================================================
+
+  else if (!strcmp(name, "exit")) {
+    // fprintf(stderr, "%d \n", __LINE__);
+    free(dup_command);
+    free_args(split_command);
+    // fprintf(stderr, "in exit\n" );
+    return 2;
+    // fprintf(stderr, "after exit\n" );
+  }
+
+  // External Command ========================================
+
+  else {
+    // fprintf(stderr, "%d %d\n", logical, __LINE__);
+    // char *seq = malloc(strlen(command) + 1);
+    // size_t j = 0;
+    // for (size_t i = 0; i < strlen(command); i++, j++) {
+    //   if (command[i] == '\\' && i < strlen(command) - 1 && (command[i+1] == '|'
+    //       || command[i+1] == '&' || command[i+1] == ';')) {
+    //     i++;
+    //   }
+    //   seq[j] = command[i];
+    // }
+    // fprintf(stderr,"%s %d\n",seq, __LINE__);
+    // seq[j] = '\0';
+    // command = seq;
+    // if (!logical) {
+    //   vector_push_back(history, command);
+    // }
+    size_t length = strlen(command);
+    int background = 0;
+    if (length >= 2) {
+      if (command[length - 1] == '&' && command[length - 2] != '\\') {
+        background = 1;
+        command[length - 1] = '\0';
+        length--;
+      }
+    }
+    char *seq = malloc(strlen(command) + 1);
+    size_t j = 0;
+    for (size_t i = 0; i < strlen(command); i++, j++) {
+      if (command[i] == '\\' && i < strlen(command) - 1 && (command[i+1] == '|'
+          || command[i+1] == '&' || command[i+1] == ';')) {
+        i++;
+      }
+      seq[j] = command[i];
+    }
+    // fprintf(stderr,"%s %d\n",seq, __LINE__);
+    seq[j] = '\0';
+    command = seq;
+    if (!logical) {
+      vector_push_back(history, command);
+    }
+    pid_t child = fork();
+    if (child == -1) {
+      print_fork_failed();
+      free(seq);
+      free(dup_command);
+      free_args(split_command);
+      return 1;
+    }
+    if (!child) {
+      print_command_executed(getpid());
+      size_t ext_num = 0;
+      char **ext_command = strsplit(command, " ", &ext_num);
+      execvp(ext_command[0], ext_command);
+      print_exec_failed(row_command);
+      free(seq);
+      free(dup_command);
+      free_args(split_command);
+      free_args(ext_command);
+      return 1;
+      // exit(1);
+    }
+    else {
+      if (background && !logical) {
+        if (setpgid(child, child) == -1) {
+          print_setpgid_failed();
+          free(seq);
+          free(dup_command);
+          free_args(split_command);
+          return 1;
+        }
+        process *current = malloc(sizeof(process));
+        current->pid = child;
+        // current->status = strdup(STATUS_RUNNING);
+        current->status = STATUS_RUNNING;
+        current->command = strdup(command);
+        vector_push_back(processes, current);
+        process_destructor(current);
+        free(seq);
+        free(dup_command);
+        free_args(split_command);
+        return 1;
+      }
+      else {
+        int status = 0;
+        // process *current = malloc(sizeof(process));
+        foreground = child;
+        // current->pid = child;
+        // current->status = strdup(STATUS_RUNNING);
+        // current->command = strdup(command);
+        // vector_push_back(processes, current);
+        // process_destructor(current);
+        pid_t pid = waitpid(child, &status, 0);
+        int error = 0;
+        if (pid == -1) {
+          print_wait_failed();
+          error = 1;
+        }
+        else if (!WIFEXITED(status)) {
+          error = 1;
+        }
+        if (error) {
+          free(seq);
+          free(dup_command);
+          free_args(split_command);
+          return 1;
+        }
+        // else {
+        //   for (size_t i = 0; i < vector_size(processes); i++) {
+        //     process *temp = (process*)vector_get(processes, i);
+        //     if (temp) {
+        //       fprintf(stderr, "%d %d\n", __LINE__, current->pid);
+        //       if (temp->pid == current->pid) {
+        //         vector_erase(processes, i);
+        //         // temp->status = STATUS_RUNNING;
+        //       }
+        //     }
+        //   }
+        // }
+      }
+    }
+    free(seq);
+    free(dup_command);
+    free_args(split_command);
+    return 0;
+  }
+  return 0;
+}
+
+
+
+int shell(int argc, char *argv[]) {
+    // TODO: This is the entry point for your shell.
+    // Handle signals
+    signal(SIGINT, handle_signal);
+    signal(SIGCHLD, handle_child);
+
+    // Handle processes
+    processes = vector_create(process_copy_constructor, process_destructor, process_default_constructor);
+    // fprintf(stderr, "%d %zu\n", __LINE__, sizeof(process));
+    process *shell = (process*)malloc(sizeof(process));
+    shell->command = strdup(argv[0]);
+    // shell->status = strdup(STATUS_RUNNING);
+    shell->status = STATUS_RUNNING;
+    shell->pid = getpid();
+    vector_push_back(processes, (void*)shell);
+    // fprintf(stderr, "%d \n", __LINE__);
+    process_destructor(shell);
+    history = string_vector_create();
+    char *ffile;
+
+    char c;
+    while((c = getopt(argc, argv, "h:f:")) != -1) {
+      switch(c) {
+        case 'h':
+        hflag = 1;
+        break;
+        case 'f':
+        fflag = 1;
+        break;
+        case '?':
+        print_usage();
+        exit_shell(0);
+      }
+    }
+    // fprintf(stderr, "%d\n", __LINE__);
+    if (hflag && fflag) {
+      if (argc != 5) {
+        print_usage();
+        exit_shell(0);
+      }
+      if (!strcmp(argv[1], "-h")) {
+        hfile = get_full_path(argv[2]);
+        ffile = get_full_path(argv[4]);
+      }
+      else {
+        ffile = get_full_path(argv[2]);
+        hfile = get_full_path(argv[4]);
+      }
+      handle_history();
+    }
+    else if (hflag || fflag) {
+      // fprintf(stderr, "%d\n", __LINE__);
+      if (argc != 3) {
+        print_usage();
+        exit_shell(0);
+      }
+      if (hflag) {
+        hfile = get_full_path(argv[2]);
+        handle_history();
+      }
+      else {
+        // fprintf(stderr, "%d\n", __LINE__);
+        ffile = get_full_path(argv[2]);
+        // fprintf(stderr, "%d\n", __LINE__);
+      }
+    }
+    else {
+      if (argc != 1) {
+        print_usage();
+        exit_shell(0);
+      }
+    }
+    FILE *file = NULL;
+    if (fflag) {
+      // fprintf(stderr, "%d ffile is %s\n", __LINE__, ffile);
+      file = fopen(ffile, "r");
+      free(ffile);
+      // fprintf(stderr, "%d\n", __LINE__);
+      if (!file) {
+        // fprintf(stderr, "%d\n", __LINE__);
+        print_script_file_error();
+        exit_shell(0);
+      }
+      // fprintf(stderr, "%d\n", __LINE__);
+    }
+
+    while (1) {
+      logical = 0;
+      char *path = NULL;
+      size_t path_size = 0;
+      path = getcwd(path, path_size);
+      print_prompt(path, getpid());
+      // fprintf(stderr, "%d \n", __LINE__);
+      free(path);
+      // fprintf(stderr, "%d \n", __LINE__);
+      char *buffer = NULL;
+      size_t capacity = 0;
+      ssize_t size = 0;
+      int ret_result = 0;
+
+      if (fflag) {
+        // fprintf(stderr, "%d\n", __LINE__);
+        size = getline(&buffer, &capacity, file);
+        // fprintf(stderr, "%d\n", __LINE__);
+        if (size == -1) {
+          // fprintf(stderr, "%d\n", __LINE__);
+          free(buffer);
+          fclose(file);
+          exit_shell(0);
+        }
+        // print_command(buffer);
+      }
+      else {
+        size = getline(&buffer, &capacity, stdin);
+        if (size == -1) {
+          free(buffer);
+          continue;
+        }
+      }
+      if (size == 1 && buffer[0] == '\n') {
+        free(buffer);
+        continue;
+      }
+      if (size > 0 && buffer[size - 1] == '\n') {
+        buffer[size - 1] = '\0';
+      }
+
+      char *temp = strstr(buffer, "&&");
+      if (temp && *(temp - 1) == '\\') {
+        handle_command(buffer);
+      }
+      else {
+        if (temp) {
+          vector_push_back(history, buffer);
+          logical = 1;
+          *temp = '\0';
+          int out = handle_command(buffer);
+          if (!out) {
+            handle_command(temp + 2);
+          }
+        }
+        else if ((temp = strstr(buffer, "||"))) {
+          vector_push_back(history, buffer);
+          logical = 1;
+          *temp = '\0';
+          // fprintf(stderr, "haha\n");
+          int out = handle_command(buffer);
+          if (out) {
+            handle_command(temp + 2);
+          }
+        }
+        else if ((temp = strstr(buffer, ";")) && *(temp - 1) != '\\') {
+          vector_push_back(history, buffer);
+          logical = 1;
+          *temp = '\0';
+          handle_command(buffer);
+          handle_command(temp + 1);
+        }
+        else {
+          ret_result = handle_command(buffer);
+        }
+      }
+      free(buffer);
+      buffer = NULL;
+      if (ret_result == 2) {
+        break;
+      }
+    }
+    // if (ffile) {
+    //   free(ffile);
+    // }
+    exit_shell(0);
+    return 0;
+}

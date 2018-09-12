@@ -1,0 +1,79 @@
+[
+  {
+    "checksum": "276e7ab50fd928cc6f6fdd48939b6bb5921b6eec  mmu.c\n",
+    "timestamp": "2018-03-09 22:00:02.317805",
+    "testcases": [
+      {
+        "name": "test_get_1_address",
+        "description": "\nThis ask the MMU for one physical adress:\n    Checks that the number of page faults is correct\n    Checks that the number of page_table_traversals is correct\n",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_get_address_twice",
+        "description": "\nThis asks the MMU for one physical_address twice:\n    Checks that the number of page_faults is correct.\n    Checks that the number of page_table_traversalss is correct.\n    Checks that the physical address is persistent.\n",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_interleave",
+        "description": "\nThis asks the MMU for 2 physical_address interleaved among each other:\n    Checks that the number of page_faults is correct.\n    Checks that the number of page_table_traversals is correct.\n    Checks that the physical address is persistent.\n",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_multiprocess",
+        "description": "\nThis tests two processes asking for the same virtual address.\n    Note: the physical addresses should be different.\n",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_page_fault_no_swap",
+        "description": "This test will read and write to a page in the DATA segment that is in the processes segmentation but no pages have been allocated for it yet.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_page_fault_with_swap",
+        "description": "This test will read and write to a page that has been paged to disk.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_same_vpns_diff_offset",
+        "description": "\nThis tests if you are effectively using the TLB for the fact that \n    \"all virtual addresses with the same 4 virtual page numbers will map to the same frame in memory\".\n",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_segfault",
+        "description": "This tests if you are correctly causing a segfault when an unallocated frame is attempted to be referenced",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_set_flags",
+        "description": "This test will read and write to a page in the DATA segment that is in the processes segmentation but no pages have been allocated for it yet.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "name": "test_spam1",
+        "description": "This test spams get_1_address() a bunch.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      }
+    ],
+    "revision": "67840"
+  }
+]

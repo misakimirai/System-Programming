@@ -1,0 +1,716 @@
+[
+  {
+    "timestamp": "2018-02-23 22:00:43.514205",
+    "checksum": "db6a16ed87c6ee5b7e9781b067e95a9c9110a3aa  queue.c\n46c45be62cdde40e9870eda5deafa6d34b244784  semamore.c\n30420105aae1afc5e60e7b2adcad5bd18e6f2534  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nMemory leaks/errors found",
+        "ptsEarned": 0.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nYour code passed 0 out of 3 runs",
+        "ptsEarned": 0.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "53812"
+  },
+  {
+    "timestamp": "2018-02-25 22:00:43.596597",
+    "checksum": "db6a16ed87c6ee5b7e9781b067e95a9c9110a3aa  queue.c\n46c45be62cdde40e9870eda5deafa6d34b244784  semamore.c\n30420105aae1afc5e60e7b2adcad5bd18e6f2534  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nMemory leaks/errors found",
+        "ptsEarned": 0.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nYour code passed 0 out of 3 runs",
+        "ptsEarned": 0.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "56062"
+  },
+  {
+    "timestamp": "2018-02-26 22:00:43.535997",
+    "checksum": "db6a16ed87c6ee5b7e9781b067e95a9c9110a3aa  queue.c\n46c45be62cdde40e9870eda5deafa6d34b244784  semamore.c\n30420105aae1afc5e60e7b2adcad5bd18e6f2534  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nMemory leaks/errors found",
+        "ptsEarned": 0.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\nFailed the test. Output was incorrect.\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Queue failed to block!",
+        "ptsEarned": 0.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nYour code passed 0 out of 3 runs",
+        "ptsEarned": 0.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Your queue is not fifo!",
+        "ptsEarned": 0.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "58287"
+  },
+  {
+    "timestamp": "2018-02-27 22:00:43.417192",
+    "checksum": "4a22a06e5d559881adae8e5bf4510879f03e5019  queue.c\nb157ba0d0ece063940800b6420bda84521a47fa2  semamore.c\na0ef7dbd0a9e5f61b57610741958984c0adcc0ea  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTimeout",
+        "ptsEarned": 0.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTimeout\nTimeout\nTimeout\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTimeout\nTimeout\nTimeout\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTimeout\nTimeout\nTimeout\n\nPassed 0/3 trials.",
+        "ptsEarned": 0.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 2.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 4.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Timed out!",
+        "ptsEarned": 0.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "59293"
+  },
+  {
+    "timestamp": "2018-02-28 12:00:43.706605",
+    "checksum": "4a22a06e5d559881adae8e5bf4510879f03e5019  queue.c\nc027549971ca56d9dd289cf523cdad02846bcf20  semamore.c\n018c6e5890f7370f2b4dada6756c8b9c5a019669  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 2.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 4.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Timed out!",
+        "ptsEarned": 0.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Test Failed",
+        "ptsEarned": 0.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "59733"
+  },
+  {
+    "timestamp": "2018-03-01 00:00:43.537435",
+    "checksum": "4a22a06e5d559881adae8e5bf4510879f03e5019  queue.c\nb3f02cc4f820b1ff7dc433fab5c8c663f9d780a3  semamore.c\n018c6e5890f7370f2b4dada6756c8b9c5a019669  barrier.c\n",
+    "testcases": [
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Memory",
+        "description": "Test barrier implementation with valgrind for memory leaks and errors",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Barrier Multiple",
+        "description": "Test multiple barriers at once.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Reuse",
+        "description": "Test for barrier reusability.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Barrier Single Use",
+        "description": "Test on single use of barrier.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Block on Min",
+        "description": "Queue blocks on pull when queue is empty.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 2.0,
+        "name": "Queue Generic Use",
+        "description": "Generic push and pull large amounts of data",
+        "ptsPossible": 2.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Max Cap",
+        "description": "Queue size doesn't exceed max capacity.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Memory",
+        "description": "Valgrind test on queue for memory leaks/errors.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 4.0,
+        "name": "Queue Stress Test",
+        "description": "Stress tests the queue",
+        "ptsPossible": 4.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Queue Unbounded",
+        "description": "Test that queue is not bounded",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 3.0,
+        "name": "Semamore Use",
+        "description": "Generic use of your semamore.",
+        "ptsPossible": 3.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "Semm_init",
+        "description": "Test semamore init function",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_post",
+        "description": "Test that semamore post works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_post block",
+        "description": "Test that semamore post blocks",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_wait",
+        "description": "Test that semamore wait works.",
+        "ptsPossible": 1.0
+      },
+      {
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsEarned": 1.0,
+        "name": "semm_wait blocks",
+        "description": "Test that semamore wait blocks",
+        "ptsPossible": 1.0
+      }
+    ],
+    "revision": "60603"
+  }
+]

@@ -1,0 +1,8 @@
+cd ..
+ls
+sleep 2
+echo Finished!
+echo 14 || sleep 1
+sleep3 || echo 12
+sleep 2
+echo Finished!

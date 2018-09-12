@@ -1,0 +1,548 @@
+[
+  {
+    "revision": "66137",
+    "timestamp": "2018-03-07 22:01:09.897733",
+    "checksum": "d4ec7264eb878153a1e7e3ea394819292e08e23f  cracker1.c\n8fd905343faa3c53170e4c3250809402bc00a320  cracker2.c\n",
+    "testcases": [
+      {
+        "description": "Test that crypt was not used",
+        "ptsPossible": 1.0,
+        "name": "test_no_crypt_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a single valid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_valid_password_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find correct password in stdout"
+      },
+      {
+        "description": "Test a single invalid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_invalid_password_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find output for not found password"
+      },
+      {
+        "description": "Test that two threads run at same time",
+        "ptsPossible": 1.0,
+        "name": "test_two_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook too long to execute, are you threading?"
+      },
+      {
+        "description": "Test that four threads run at same time, cracking 4 passwords",
+        "ptsPossible": 1.0,
+        "name": "test_four_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?"
+      },
+      {
+        "description": "Test that 4 threads run at same time cracking 12 passwords",
+        "ptsPossible": 1.0,
+        "name": "test_12_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook too long to execute, are you threading?"
+      },
+      {
+        "description": "Test that the program efficiently processes passwords",
+        "ptsPossible": 1.0,
+        "name": "test_efficiency_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test that the program doesn't exit until EOF is found",
+        "ptsPossible": 1.0,
+        "name": "test_eof_end_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find total_time output"
+      },
+      {
+        "description": "Test a single password",
+        "ptsPossible": 1.0,
+        "name": "test_memory_easy_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a few passwords",
+        "ptsPossible": 1.0,
+        "name": "test_memory_medium_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a lot of passwords",
+        "ptsPossible": 1.0,
+        "name": "test_memory_hard_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test correct password and crypt_r() count",
+        "ptsPossible": 1.0,
+        "name": "test_crypt_r_count_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFound correct output, wrong hash count"
+      },
+      {
+        "description": "Test a single valid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_valid_password_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find correct password in stdout"
+      },
+      {
+        "description": "Test a single invalid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_invalid_password_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find output for not found password"
+      },
+      {
+        "description": "Test that 2 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_two_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that 4 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_four_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that 13 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_13_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that same threads were used for second password",
+        "ptsPossible": 1.0,
+        "name": "test_use_same_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nCould not find pthread_calls output"
+      },
+      {
+        "description": "Test that the program doesn't exit until EOF is found",
+        "ptsPossible": 1.0,
+        "name": "test_eof_end_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find total_time output"
+      },
+      {
+        "description": "Test many many passwords",
+        "ptsPossible": 1.0,
+        "name": "test_sanity_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test that tsan doesn't throw warnings",
+        "ptsPossible": 1.0,
+        "name": "test_tsan_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test that program stops when 1 thread finds password",
+        "ptsPossible": 1.0,
+        "name": "test_early_exit_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test a single password with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_easy_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a few passwords with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_medium_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a lot of passwords with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_hard_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      }
+    ]
+  },
+  {
+    "revision": "67839",
+    "testcases": [
+      {
+        "description": "Test that crypt was not used",
+        "ptsPossible": 1.0,
+        "name": "test_no_crypt_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a single valid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_valid_password_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find correct password in stdout"
+      },
+      {
+        "description": "Test a single invalid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_invalid_password_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find output for not found password"
+      },
+      {
+        "description": "Test that two threads run at same time",
+        "ptsPossible": 1.0,
+        "name": "test_two_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook too long to execute, are you threading?"
+      },
+      {
+        "description": "Test that four threads run at same time, cracking 4 passwords",
+        "ptsPossible": 1.0,
+        "name": "test_four_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?"
+      },
+      {
+        "description": "Test that 4 threads run at same time cracking 12 passwords",
+        "ptsPossible": 1.0,
+        "name": "test_12_threads_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook too long to execute, are you threading?"
+      },
+      {
+        "description": "Test that the program efficiently processes passwords",
+        "ptsPossible": 1.0,
+        "name": "test_efficiency_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test that the program doesn't exit until EOF is found",
+        "ptsPossible": 1.0,
+        "name": "test_eof_end_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find total_time output"
+      },
+      {
+        "description": "Test a single password",
+        "ptsPossible": 1.0,
+        "name": "test_memory_easy_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a few passwords",
+        "ptsPossible": 1.0,
+        "name": "test_memory_medium_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a lot of passwords",
+        "ptsPossible": 1.0,
+        "name": "test_memory_hard_version_1",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test correct password and crypt_r() count",
+        "ptsPossible": 1.0,
+        "name": "test_crypt_r_count_version_1",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFound correct output, wrong hash count"
+      },
+      {
+        "description": "Test a single valid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_valid_password_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find correct password in stdout"
+      },
+      {
+        "description": "Test a single invalid password",
+        "ptsPossible": 1.0,
+        "name": "test_one_invalid_password_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find output for not found password"
+      },
+      {
+        "description": "Test that 2 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_two_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that 4 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_four_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that 13 threads run at same time, cracking 1 password",
+        "ptsPossible": 5.0,
+        "name": "test_13_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration"
+      },
+      {
+        "description": "Test that same threads were used for second password",
+        "ptsPossible": 1.0,
+        "name": "test_use_same_threads_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nCould not find pthread_calls output"
+      },
+      {
+        "description": "Test that the program doesn't exit until EOF is found",
+        "ptsPossible": 1.0,
+        "name": "test_eof_end_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find total_time output"
+      },
+      {
+        "description": "Test many many passwords",
+        "ptsPossible": 1.0,
+        "name": "test_sanity_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test that tsan doesn't throw warnings",
+        "ptsPossible": 1.0,
+        "name": "test_tsan_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test that program stops when 1 thread finds password",
+        "ptsPossible": 1.0,
+        "name": "test_early_exit_version_2",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs"
+      },
+      {
+        "description": "Test a single password with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_easy_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a few passwords with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_medium_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      },
+      {
+        "description": "Test a lot of passwords with memory checks",
+        "ptsPossible": 1.0,
+        "name": "test_memory_hard_version_2",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)"
+      }
+    ],
+    "checksum": "d4ec7264eb878153a1e7e3ea394819292e08e23f  cracker1.c\n8fd905343faa3c53170e4c3250809402bc00a320  cracker2.c\n",
+    "timestamp": "2018-03-09 22:01:11.460450"
+  },
+  {
+    "revision": "68910",
+    "timestamp": "2018-03-10 22:01:11.506726",
+    "checksum": "72002a6ad21cd4313abd12711a3926ab1b04f608  cracker1.c\n8fd905343faa3c53170e4c3250809402bc00a320  cracker2.c\n",
+    "testcases": [
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that crypt was not used",
+        "name": "test_no_crypt_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test a single valid password",
+        "name": "test_one_valid_password_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test a single invalid password",
+        "name": "test_one_invalid_password_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that two threads run at same time",
+        "name": "test_two_threads_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that four threads run at same time, cracking 4 passwords",
+        "name": "test_four_threads_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that 4 threads run at same time cracking 12 passwords",
+        "name": "test_12_threads_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that the program efficiently processes passwords",
+        "name": "test_efficiency_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test that the program doesn't exit until EOF is found",
+        "name": "test_eof_end_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test a single password",
+        "name": "test_memory_easy_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test a few passwords",
+        "name": "test_memory_medium_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test a lot of passwords",
+        "name": "test_memory_hard_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nFAILED TO COMPILE!\ncracker1.c: In function \u2018helper\u2019:\ncracker1.c:35:35: error: \u2018threadId\u2019 undeclared (first use in this function)\n     v1_print_thread_start((size_t)threadId, name);\n                                   ^\ncracker1.c:35:35: note: each undeclared identifier is reported only once for each function it appears in\ncracker1.c:46:38: error: \u2018prefix_length\u2019 undeclared (first use in this function)\n       while (incrementString(known + prefix_length) != 0) {\n                                      ^\ncracker1.c:60:44: error: \u2018start_time\u2019 undeclared (first use in this function)\n     double duration = getThreadCPUTime() - start_time;\n                                            ^\ncracker1.c:23:12: error: unused variable \u2018start\u2019 [-Werror=unused-variable]\n     double start = getThreadCPUTime();\n            ^\ncracker1.c: In function \u2018start\u2019:\ncracker1.c:80:37: error: passing argument 2 of \u2018getline\u2019 makes pointer from integer without a cast [-Werror=int-conversion]\n     while ((size = getline(&buffer, capacity, stdin)) != -1) {\n                                     ^\nIn file included from /usr/include/stdio.h:933:0,\n                 from cracker1.c:12:\n/usr/include/x86_64-linux-gnu/bits/stdio.h:115:1: note: expected \u2018size_t * {aka long unsigned int *}\u2019 but argument is of type \u2018size_t {aka long unsigned int}\u2019\n getline (char **__lineptr, size_t *__n, FILE *__stream)\n ^\ncracker1.c:93:28: error: \u2018temp\u2019 undeclared (first use in this function)\n       pthread_join(threads[temp], &retval);\n                            ^\ncracker1.c:93:35: error: passing argument 2 of \u2018pthread_join\u2019 from incompatible pointer type [-Werror=incompatible-pointer-types]\n       pthread_join(threads[temp], &retval);\n                                   ^\nIn file included from libs/utils.h:4:0,\n                 from cracker1.c:8:\n/usr/include/pthread.h:250:12: note: expected \u2018void **\u2019 but argument is of type \u2018void * (*)[(sizetype)(thread_count)]\u2019\n extern int pthread_join (pthread_t __th, void **__thread_return);\n            ^\ncc1: all warnings being treated as errors\nmake: *** [.objs/cracker1-release.o] Error 1\n",
+        "description": "Test correct password and crypt_r() count",
+        "name": "test_crypt_r_count_version_1",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find correct password in stdout",
+        "description": "Test a single valid password",
+        "name": "test_one_valid_password_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find output for not found password",
+        "description": "Test a single invalid password",
+        "name": "test_one_invalid_password_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 5.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration",
+        "description": "Test that 2 threads run at same time, cracking 1 password",
+        "name": "test_two_threads_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 5.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration",
+        "description": "Test that 4 threads run at same time, cracking 1 password",
+        "name": "test_four_threads_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 5.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTook to long to execute, are you threading?\nCould not find correct password in output\nYour threads do not print out the correct number of iterations\nYour threads do not start at correct iteration",
+        "description": "Test that 13 threads run at same time, cracking 1 password",
+        "name": "test_13_threads_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nCould not find pthread_calls output",
+        "description": "Test that same threads were used for second password",
+        "name": "test_use_same_threads_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed to find total_time output",
+        "description": "Test that the program doesn't exit until EOF is found",
+        "name": "test_eof_end_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs",
+        "description": "Test many many passwords",
+        "name": "test_sanity_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)",
+        "description": "Test that tsan doesn't throw warnings",
+        "name": "test_tsan_version_2",
+        "ptsEarned": 1.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nDid not find correct outputs",
+        "description": "Test that program stops when 1 thread finds password",
+        "name": "test_early_exit_version_2",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)",
+        "description": "Test a single password with memory checks",
+        "name": "test_memory_easy_version_2",
+        "ptsEarned": 1.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)",
+        "description": "Test a few passwords with memory checks",
+        "name": "test_memory_medium_version_2",
+        "ptsEarned": 1.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nSuccess :)",
+        "description": "Test a lot of passwords with memory checks",
+        "name": "test_memory_hard_version_2",
+        "ptsEarned": 1.0
+      }
+    ]
+  }
+]

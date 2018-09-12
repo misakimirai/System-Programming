@@ -1,0 +1,311 @@
+/**
+* Text Editor Lab
+* CS 241 - Spring 2018
+*/
+
+#include "document.h"
+#include "editor.h"
+#include "format.h"
+#include "sstream.h"
+
+#include <assert.h>
+#include <limits.h>
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define CSTRING(x) ((bytestring){(char *)x, -1})
+#define DECLARE_BUFFER(name) bytestring name = {NULL, 0};
+#define EMPTY_BYTES ((bytestring){NULL, 0})
+
+char *get_filename(int argc, char *argv[]) {
+    // TODO implement get_filename
+    // take a look at editor_main.c to see what this is used for
+    return argv[1];
+}
+
+sstream *handle_create_stream() {
+    // TODO create empty stream
+    return sstream_create(EMPTY_BYTES);
+}
+
+document *handle_create_document(const char *path_to_file) {
+    // TODO create the document
+    return document_create_from_file(path_to_file);
+}
+
+void handle_cleanup(editor *editor) {
+    // TODO destroy the document
+    document_destroy(editor->document);
+}
+
+void handle_display_command(editor *editor, size_t start_line,
+                            ssize_t max_lines, size_t start_col_index,
+                            ssize_t max_cols) {
+    // TODO implement handle_display_command
+    document *doc = editor->document;
+    size_t size = document_size(doc);
+    if (size == 0 && start_line != 0) {
+      print_document_empty_error();
+      return;
+    }
+    size_t end_line;
+    if (max_lines == -1) {
+      start_line = 1;
+      end_line = size;
+    }
+    else {
+      end_line = max_lines + start_line - 1;
+      if (end_line > size)
+        end_line = size;
+    }
+    size_t i = start_line;
+    for (; i <= end_line; i++) {
+      print_line(doc, i, start_col_index, max_cols);
+    }
+}
+
+void handle_insert_command(editor *editor, location loc, const char *line) {
+    // TODO implement handle_insert_command
+    document *doc = editor->document;
+    if (loc.line_no > document_size(doc)) {
+      document_insert_line(doc, loc.line_no, line);
+      return;
+    }
+    const char *temp = document_get_line(doc, loc.line_no);
+    char *result = malloc(strlen(temp) + strlen(line) + 1);
+    size_t i = 0;
+    for (; i < loc.idx; i++) {
+      result[i] = temp[i];
+    }
+    strcpy(result + i, line);
+    for (; i < strlen(temp); i++) {
+      result[i + strlen(line)] = temp[i];
+    }
+    result[i + strlen(line)] = '\0';
+    document_set_line(doc, loc.line_no, result);
+    free(result);
+}
+
+void handle_append_command(editor *editor, size_t line_no, const char *line) {
+    // TODO implement handle_append_command
+    document *doc = editor->document;
+    size_t length = strlen(line);
+    char *temp = malloc(length + 1);
+    size_t i = 0;
+    size_t j = 0;
+    for(; i < length; i++) {
+      if (line[i] == '\\' && i == length - 1) {
+        break;
+      }
+      if (line[i] == '\\' && line[i + 1] == 'n') {
+        temp[j] = '\n';
+        i++;
+      }
+      if (line[i] == '\\') {
+        temp[j] = line[i + 1];
+        i++;
+      }
+      else {
+        temp[j] = line[i];
+      }
+      j++;
+    }
+    temp[j] = '\0';
+    vector* vec = vector_create(string_copy_constructor, string_destructor,
+                                 string_default_constructor);
+    size_t k = 0;
+    char *temp1 = temp;
+    for (; k < strlen(temp1); k++) {
+      if (temp1[k] == '\n') {
+        temp1[k] = '\0';
+        vector_push_back(vec, temp1);
+        temp1 += (k + 1);
+      }
+    }
+    if (*temp1) {
+      vector_push_back(vec, temp1);
+    }
+    char *temp2 = vector_get(vec, 0);
+    const char *temp3 = document_get_line(doc, line_no);
+    char *temp4 = malloc(strlen(temp2)+ strlen(temp3) + 1);
+    temp4[0] = '\0';
+    strcat(temp4, temp2);
+    strcat(temp4, temp3);
+    vector_set(vec, 0, temp4);
+    if (line_no <= document_size(doc)) {
+      document_set_line(doc, line_no, vector_get(vec, 0));
+    }
+    else {
+      document_insert_line(doc, line_no, vector_get(vec, 0));
+    }
+    size_t l = 1;
+    for(; l < vector_size(vec); l++) {
+      document_insert_line(doc, line_no + l, vector_get(vec, l));
+    }
+    free(temp4);
+    free(temp);
+    vector_destroy(vec);
+}
+
+void handle_write_command(editor *editor, size_t line_no, const char *line) {
+    // TODO implement handle_write_command
+    document *doc = editor->document;
+    size_t length = strlen(line);
+    char *temp = malloc(length + 1);
+    size_t i = 0;
+    size_t j = 0;
+    for(; i < length; i++) {
+      if (line[i] == '\\' && i == length - 1) {
+        break;
+      }
+      if (line[i] == '\\' && line[i + 1] == 'n') {
+        temp[j] = '\n';
+        i++;
+      }
+      if (line[i] == '\\') {
+        temp[j] = line[i + 1];
+        i++;
+      }
+      else {
+        temp[j] = line[i];
+      }
+      j++;
+    }
+    temp[j] = '\0';
+    vector* vec = vector_create(string_copy_constructor, string_destructor,
+                                 string_default_constructor);
+    size_t k = 0;
+    char *temp1 = temp;
+    for (; k < strlen(temp1); k++) {
+      if (temp1[k] == '\n') {
+        temp1[k] = '\0';
+        vector_push_back(vec, temp1);
+        temp1 += (k + 1);
+      }
+    }
+    if (*temp1) {
+      vector_push_back(vec, temp1);
+    }
+    if (line_no <= document_size(doc)) {
+      document_set_line(doc, line_no, vector_get(vec, 0));
+    }
+    else {
+      document_insert_line(doc, line_no, vector_get(vec, 0));
+    }
+    size_t l = 1;
+    for(; l < vector_size(vec); l++) {
+      document_insert_line(doc, line_no + l, vector_get(vec, l));
+    }
+    free(temp);
+    vector_destroy(vec);
+}
+
+void handle_delete_command(editor *editor, location loc, size_t num_chars) {
+    // TODO implement handle_delete_command
+    document *doc = editor->document;
+    if (loc.line_no > document_size(doc)) {
+      size_t i = document_size(doc);
+      for (; i >0; i--){
+        document_delete_line(doc, i);
+      }
+      return;
+    }
+    const char *temp = document_get_line(doc, loc.line_no);
+    if (strlen(temp) - loc.idx <= num_chars) {
+      num_chars = strlen(temp) - loc.idx;
+    }
+    char *result = malloc(strlen(temp) - num_chars + 1);
+    size_t i = 0;
+    for (; i < loc.idx; i++) {
+      result[i] = temp[i];
+    }
+    for (; i < strlen(temp) - num_chars; i++) {
+      result[i] = temp[i + num_chars];
+    }
+    result[i] = '\0';
+    document_set_line(doc, loc.line_no, result);
+    free(result);
+}
+
+void handle_delete_line(editor *editor, size_t line_no) {
+    // TODO implement handle_delete_line
+    document_delete_line(editor->document, line_no);
+}
+
+location handle_search_command(editor *editor, location loc,
+                               const char *search_str) {
+    // TODO implement handle_search_command
+    if (!*search_str)
+      return (location){0, 0};
+    document *doc = editor->document;
+    const char *temp = document_get_line(doc, loc.line_no);
+    size_t i = loc.line_no;
+    if (loc.idx >= strlen(temp)) {
+      i++;
+    }
+    char *result = strstr(temp + loc.idx, search_str);
+    if (result) {
+      return (location){i, result - temp};
+    }
+    i++;
+    for(; i < document_size(doc); i++){
+      temp = document_get_line(doc, i);
+      result = strstr(temp, search_str);
+      if (result) {
+        return (location){i, result - temp};
+      }
+    }
+    size_t k = 1;
+    for(; k <= loc.line_no; k++){
+      temp = document_get_line(doc, k);
+      if(k == loc.line_no){//last line!!
+        char* temp1 = strndup(temp, loc.idx);
+        char* result = strstr(temp, search_str);
+        if (result) {
+          return (location){i, result - temp};
+        }
+        free(temp1);
+      }
+      else{
+        result = strstr(temp, search_str);
+        if (result) {
+          return (location){i, result - temp};
+        }
+      }
+    }
+    return (location){0, 0};//not found!
+}
+
+void handle_merge_line(editor *editor, size_t line_no) {
+    // TODO implement handle_merge_line
+    document *doc = editor->document;
+    const char *temp1 = document_get_line(doc, line_no);
+    const char *temp2 = document_get_line(doc, line_no + 1);
+    char *temp3 = malloc(strlen(temp1) + strlen(temp2) + 1);
+    temp3[0] = '\0';
+    strcat(temp3, temp1);
+    strcat(temp3, temp2);
+    document_delete_line(doc, line_no);
+    document_set_line(doc, line_no, temp3);
+    free(temp3);
+}
+
+void handle_split_line(editor *editor, location loc) {
+    // TODO implement handle_split_line
+    document *doc = editor->document;
+    const char *temp = document_get_line(doc, loc.line_no);
+    char *result1 = strdup(temp);
+    char *result2 = strdup(temp + loc.idx);
+    result1[loc.idx + 1] = '\0';
+    document_set_line(doc, loc.line_no, result1);
+    document_insert_line(doc, loc.line_no + 1, result2);
+    free(result1);
+    free(result2);
+}
+
+void handle_save_command(editor *editor) {
+    // TODO implement handle_save_command
+    document_write_to_file(editor->document, editor->filename);
+}

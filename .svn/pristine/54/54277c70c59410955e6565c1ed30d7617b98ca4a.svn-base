@@ -1,0 +1,42 @@
+/**
+* Password Cracker Lab
+* CS 241 - Spring 2018
+*/
+
+#include "cracker1.h"
+#include "format.h"
+#include "utils.h"
+
+size_t success;
+size_t total;
+
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
+typedef struct _task {
+  size_t index;
+  queue* tasks = task_queue;
+} task;
+
+int start(size_t thread_count) {
+    // TODO your code here, make sure to use thread_count!
+    // Remember to ONLY crack passwords in other threads
+    pthread_t *threads = calloc(thread_count, sizeof(pthread_t));
+    queue *task_queue = queue_create(-1);
+    char *buffer = NULL;
+    size_t capacity = 0;
+    while (getline(&buffer, capacity, stdin) != -1) {
+      char *temp = strdup(buffer);
+      queue_push(task_queue, temp);
+      free(buffer);
+      capacity = 0;
+      total++;
+    }
+    void *retval;
+    for (size_t i = 0; i < total; i++) {
+      size_t temp = i % thread_count;
+      pthread_create(threads + temp, NULL, helper, task_queue);
+      pthread_join(threads[temp], &retval);
+    }
+    return 0; // DO NOT change the return code since AG uses it to check if your
+              // program exited normally
+}

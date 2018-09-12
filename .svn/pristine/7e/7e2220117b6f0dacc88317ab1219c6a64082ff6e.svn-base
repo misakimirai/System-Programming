@@ -1,0 +1,44 @@
+[
+  {
+    "revision": "83737",
+    "testcases": [
+      {
+        "name": "Large Input",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers\nCouldn't open/read output file",
+        "description": "Runs mapreduce on a large input with multiple mappers."
+      },
+      {
+        "name": "Multiple Mappers",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers with mappers of 0",
+        "description": "Correct number of mappers are used."
+      },
+      {
+        "name": "Performance",
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nCouldn't open/read output files",
+        "description": "Tests performance of 1 mapper vs multiple mappers."
+      },
+      {
+        "name": "Small Input",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers, with mappers of 0\nUnable to open/read output file",
+        "description": "Runs mapreduce on a small input with multiple mappers."
+      },
+      {
+        "name": "Splitter Usage",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nData was not split evenly among mappers",
+        "description": "Test that splitter is used correctly to feed data to mappers."
+      }
+    ],
+    "timestamp": "2018-04-04 22:00:29.926407",
+    "checksum": "15b9ce257a0b5773dfb23ad1dd30c341c2137884  mapreduce.c\n"
+  }
+]

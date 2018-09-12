@@ -1,0 +1,124 @@
+/**
+* Text Editor Lab
+* CS 241 - Spring 2018
+*/
+
+#include "sstream.h"
+
+struct sstream{
+  ssize_t size;
+  ssize_t position;
+  char *buffer;
+}
+typedef struct sstream sstream;
+
+sstream *sstream_create(bytestring bytes) {
+    // TODO implement
+    sstream *this = (sstream*) malloc (sizeof(sstream));
+    this->position = 0;
+    if (!bytes->str) {
+      return this;
+    }
+    if (bytes->size < 0) {
+      this->size = strlen(bytes->str);
+      this->buffer = strdup(bytes->str);
+      return this;
+    }
+    this->size = bytes->size;
+    char *temp = malloc(bytes->size + 1);
+    memcpy(temp, bytes->str, bytes->size);
+    this->buffer[this->size] = '\0';
+    return this;
+}
+
+void sstream_destroy(sstream *this) {
+    // TODO implement
+    free(this->buffer);
+    free(this);
+}
+
+void sstream_str(sstream *this, bytestring bytes) {
+    // TODO implement
+    sstream_destroy(this);
+    this = sstream_create(bytes);
+}
+
+bool sstream_eos(sstream *this) {
+    // TODO implement
+    if (this->position >= this->size)
+      return True;
+    // if (this->position == this->size && this->buffer[this->size] == NULL)
+    //   return True;
+    return False;
+}
+
+char sstream_peek(sstream *this, ssize_t offset) {
+    // TODO implement
+    if (this->position + offset < 0 || this->position + offset > this->size - 1) {
+      perror("Peek in undefined places!");
+      exit(3);
+    }
+    return this->buffer[this->position + offset];
+}
+
+char sstream_getch(sstream *this) {
+    // TODO implement
+    if (sstream_eos(this)) {
+      perror("Getchar at end of the string!");
+      exit(4);
+    }
+    return this->buffer[this->position++];
+}
+
+size_t sstream_size(sstream *this) {
+    // TODO implement
+    return this->size;
+}
+
+size_t sstream_tell(sstream *this) {
+    // TODO implement
+    return this->position;
+}
+
+int sstream_seek(sstream *this, ssize_t offset, int whence) {
+    // TODO implement
+    return 0;
+}
+
+size_t sstream_remain(sstream *this) {
+    // TODO implement
+    return 0;
+}
+
+size_t sstream_read(sstream *this, bytestring *out, ssize_t count) {
+    // TODO implement
+    return 0;
+}
+
+void sstream_append(sstream *this, bytestring bytes) {
+    // TODO implement
+    return;
+}
+
+ssize_t sstream_subseq(sstream *this, bytestring bytes) {
+    // TODO implement
+    return 0;
+}
+
+size_t sstream_erase(sstream *this, ssize_t number) {
+    // TODO implement
+    return 0;
+}
+
+void sstream_write(sstream *this, bytestring bytes) {
+    // TODO implement
+}
+
+void sstream_insert(sstream *this, bytestring bytes) {
+    // TODO implement
+}
+
+int sstream_parse_long(sstream *this, long *out) {
+    // TODO implement
+    return 0;
+}

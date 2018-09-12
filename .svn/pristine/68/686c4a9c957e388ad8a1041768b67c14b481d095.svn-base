@@ -1,0 +1,443 @@
+[
+  {
+    "revision": "93190",
+    "timestamp": "2018-04-20 22:00:02.573515",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "93604",
+    "timestamp": "2018-04-21 22:00:02.737490",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "94114",
+    "timestamp": "2018-04-22 22:00:02.700348",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "94851",
+    "timestamp": "2018-04-23 22:00:02.787639",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "95425",
+    "timestamp": "2018-04-24 22:00:02.776280",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "95651",
+    "timestamp": "2018-04-25 12:00:02.714280",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "checksum": "e6a9eb38e5619d0265098aafee5bca372cfe95e1  syscalls.c\n67d34724530184626b75115aeb8585e7eb677c5f  page_fault_helpers.c\n"
+  },
+  {
+    "revision": "96315",
+    "timestamp": "2018-04-26 00:00:02.715383",
+    "testcases": [
+      {
+        "name": "load_shared_file_test",
+        "description": "checks IPC and fault avoidance using shared file memory",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "mmap_failure_test",
+        "description": "ensure MMAP fails on bad args and illegal accesses cause segfaults",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "mmap_simple_test",
+        "description": "checks that anon mappings allow reads and writes, returning correct faults",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "mmap_stress_allocation_test",
+        "description": "ensures mmap satisfies nontrivial requests interspersed with munmaps",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "msync_test",
+        "description": "tests that msync cleans all PTEs and flushes changes to disk",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "page_out_shared_file_test",
+        "description": "ensures page_out_shared_page marks all PTEs clean and not-present",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "private_file_swap_out_test",
+        "description": "checks swap_out_private_page works by writing to private mapped file larger than memory but smaller than swap",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      },
+      {
+        "name": "sbrk_test",
+        "description": "tests very basic sbrk call succeeds after one mmap call",
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nGood Job!"
+      }
+    ],
+    "checksum": "19cf3eca7f97cf2bc4824a1b8eaa9159d1ddbc42  syscalls.c\n1d403b915b130a05a9c71bba37789971fbd7a30e  page_fault_helpers.c\n"
+  }
+]

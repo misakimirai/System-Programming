@@ -1,0 +1,315 @@
+/**
+* Text Editor Lab
+* CS 241 - Spring 2018
+*/
+
+#include "sstream.h"
+#include <string.h>
+
+#define MIN(x, y) (((x) < (y)) ? (x) : (y))
+
+struct sstream{
+  ssize_t size;
+  ssize_t position;
+  char *buffer;
+};
+
+sstream *sstream_create(bytestring bytes) {
+    // TODO implement
+    sstream *this = (sstream*) malloc (sizeof(sstream));
+    this->position = 0;
+    if (!bytes.str) {
+      this->size = 0;
+      return this;
+    }
+    if (bytes.size < 0) {
+      this->size = strlen(bytes.str);
+      char *temp = malloc(this->size);
+      memcpy(temp, bytes.str, this->size);
+      this->buffer = temp;
+      return this;
+    }
+    this->size = bytes.size;
+    char *temp = malloc(bytes.size);
+    memcpy(temp, bytes.str, bytes.size);
+    this->buffer = temp;
+    return this;
+}
+
+void sstream_destroy(sstream *this) {
+    // TODO implement
+    free(this->buffer);
+    free(this);
+}
+
+void sstream_str(sstream *this, bytestring bytes) {
+    // TODO implement
+    if (this->buffer)
+      free(this->buffer);
+    if (!bytes.str) {
+      this->size = 0;
+      this->position = 0;
+    }
+    else if (bytes.size < 0) {
+      this->size = strlen(bytes.str);
+      char *temp = malloc(this->size);
+      memcpy(temp, bytes.str, this->size);
+      this->buffer = temp;
+    }
+    else {
+      this->size = bytes.size;
+      char *temp = malloc(bytes.size);
+      memcpy(temp, bytes.str, bytes.size);
+      this->buffer = temp;
+    }
+    this->position = 0;
+}
+
+bool sstream_eos(sstream *this) {
+    // TODO implement
+    if (this->position >= this->size)
+      return 1;
+    // if (this->position == this->size && this->buffer[this->size] == NULL)
+    //   return True;
+    return 0;
+}
+
+char sstream_peek(sstream *this, ssize_t offset) {
+    // TODO implement
+    // if (this->position + offset < 0 || this->position + offset > this->size - 1) {
+    //   perror("Peek in undefined places!");
+    //   exit(3);
+    // }
+    // if (this->position + offset < 0 || this->position + offset > this->size - 1) {
+    //   fprintf(stderr, "out of sstream");
+    // }
+    return this->buffer[this->position + offset];
+}
+
+char sstream_getch(sstream *this) {
+    // TODO implement
+    // if (sstream_eos(this)) {
+    //   perror("Getchar at end of the string!");
+    //   exit(4);
+    // }
+    return this->buffer[this->position++];
+}
+
+size_t sstream_size(sstream *this) {
+    // TODO implement
+    return this->size;
+}
+
+size_t sstream_tell(sstream *this) {
+    // TODO implement
+    return this->position;
+}
+
+int sstream_seek(sstream *this, ssize_t offset, int whence) {
+    // TODO implement
+    if (whence == SEEK_CUR) {
+      offset = this->position + offset;
+    }
+    else if (whence == SEEK_END) {
+      offset = this->size + offset;
+    }
+    if (offset < 0 || offset >= this->size) {
+      return -1;
+    }
+    this->position = offset;
+    return 0;
+}
+
+size_t sstream_remain(sstream *this) {
+    // TODO implement
+    return this->size - this->position;
+}
+
+size_t sstream_read(sstream *this, bytestring *out, ssize_t count) {
+    // TODO implement
+    size_t count_t;
+    if (count >= 0) {
+      count_t = MIN((size_t)count, sstream_remain(this));
+    }
+    else {
+      count_t = MIN((size_t)(0 - count), sstream_tell(this));
+    }
+    if (out->str == NULL) {
+      char *temp = malloc(count_t + 1);
+      out->str = temp;
+      out->size = count_t;
+      out->str[count_t] = '\0';
+    }
+    else {
+      if ((size_t)out->size < count_t) {
+        out->str = realloc(out->str, count_t + 1);
+        out->size = count_t;
+        out->str[count_t] = '\0';
+      }
+    }
+    if (count < 0) {
+      memcpy(out->str, this->buffer + this->position - count_t, count_t);
+    }
+    else {
+      memcpy(out->str, this->buffer + this->position, count_t);
+      this->position += count_t;
+    }
+    return count_t;
+}
+
+void sstream_append(sstream *this, bytestring bytes) {
+    // TODO implement
+    if (bytes.size < 0) {
+      size_t temp = strlen(bytes.str);
+      this->buffer = realloc(this->buffer, this->size + temp);
+      memcpy(this->buffer + this->size, bytes.str,temp);
+      this->size += temp;
+    }
+    else {
+      this->buffer= realloc(this->buffer, this->size + bytes.size);
+      memcpy(this->buffer + this->size, bytes.str, bytes.size);
+      this->size += bytes.size;
+    }
+}
+
+ssize_t sstream_subseq(sstream *this, bytestring bytes) {
+    // TODO implement
+    size_t length;
+    if (bytes.size < 0) {
+      length = strlen(bytes.str);
+    }
+    else {
+      length = bytes.size;
+    }
+    size_t i = this->position;
+    for (; i < (size_t)this->size; i++) {
+      size_t j = 0;
+      int flag = 1;
+      while (flag != 0 && j < length && i + j < (size_t)this->size) {
+        if (this->buffer[i + j] != bytes.str[j]) {
+          flag = 0;
+        }
+        j++;
+      }
+      if (flag && j == length) {
+        return i - this->position;
+      }
+    }
+    return -1;
+}
+
+size_t sstream_erase(sstream *this, ssize_t number) {
+    // TODO implement
+    if (number > 0) {
+      size_t count_t = MIN(number, this->size - this->position);
+      char *temp = malloc(this->size - this->position - count_t);
+      memcpy(temp, this->buffer + this->position + count_t, this->size - this->position - count_t);
+      this->buffer = realloc(this->buffer, this->size - count_t);
+      memcpy(this->buffer + this->position, temp, this->size - this->position - count_t);
+      this->size -= count_t;
+      free(temp);
+      return count_t;
+    }
+    else if (number < 0) {
+      size_t count_t = MIN((0 - number), this->position);
+      char *temp = malloc(this->size - this->position);
+      memcpy(temp, this->buffer + this->position, this->size - this->position);
+      this->buffer = realloc(this->buffer, this->size - count_t);
+      memcpy(this->buffer + this->position - count_t, temp, this->size - this->position);
+      this->size -= count_t;
+      this->position -= count_t;
+      free(temp);
+      return count_t;
+    }
+    return 0;
+}
+
+void sstream_write(sstream *this, bytestring bytes) {
+    // TODO implement
+    size_t length;
+    if (bytes.size < 0) {
+      length = strlen(bytes.str);
+    }
+    else {
+      length = bytes.size;
+    }
+    if (length + this->position > (size_t)this->size) {
+      this->buffer = realloc(this->buffer, length + this->position);
+      this->size = length + this->position;
+    }
+    size_t i = 0;
+    for (; i < length; i++) {
+      this->buffer[this->position + i] = bytes.str[i];
+    }
+}
+
+void sstream_insert(sstream *this, bytestring bytes) {
+    // TODO implement
+    size_t length;
+    if (bytes.size < 0) {
+      length = strlen(bytes.str);
+    }
+    else {
+      length = bytes.size;
+    }
+    char *temp = malloc(this->size + length);
+    memcpy(temp, this->buffer, this->position);
+    memcpy(temp + this->position, bytes.str, length);
+    memcpy(temp + this->position + length, this->buffer + this->position, this->size - this->position);
+    free(this->buffer);
+    this->size += length;
+    this->buffer = temp;
+}
+
+int sstream_parse_long(sstream *this, long *out) {
+    // TODO implement
+    long temp = 0;
+    if (this->buffer[this->position] == '-') {
+      // printf("hello\n");
+      size_t i = 1;
+      if (this->size == 1 || 9 < this->buffer[this->position + i] - '0' || this->buffer[this->position + i] - '0' < 0) {
+        return -1;
+      }
+      for (; i < (size_t)(this->size - this->position); i ++) {
+        if (this->buffer[this->position + i] - '0' > 9 || this->buffer[this->position + i] - '0' < 0) {
+          this->position += i;
+          *out = temp;
+          return i;
+        }
+        long temp2 = temp;
+        temp *= 10;
+        temp -= (this->buffer[this->position + i] - '0');
+        // printf("%ld", temp);
+        if (temp > 0) {
+          *out = temp2;
+          this->position += i;
+          return i;
+        }
+      }
+      *out = temp;
+      this->position += i;
+      return i;
+    }
+    else if (9 >= this->buffer[this->position] - '0' && this->buffer[this->position] - '0' >= 0){
+      size_t i = 0;
+      for (; i < (size_t)(this->size - this->position); i ++) {
+        if (this->buffer[this->position + i] - '0' > 9 || this->buffer[this->position + i] - '0' < 0) {
+          this->position += i;
+          *out = temp;
+          return i;
+        }
+        long temp2 = temp;
+        temp *= 10;
+        temp += (this->buffer[this->position + i] - '0');
+        if (temp < 0) {
+          *out = temp2;
+          this->position += i;
+          return i;
+        }
+      }
+      *out = temp;
+      this->position += i;
+      return i;
+    }
+    return -1;
+}

@@ -1,0 +1,842 @@
+[
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10155== Memcheck, a memory error detector\n==10155== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10155== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10155== Command: ./part1\n==10155== \n==10155== \n==10155== HEAP SUMMARY:\n==10155==     in use at exit: 0 bytes in 0 blocks\n==10155==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==10155== \n==10155== All heap blocks were freed -- no leaks are possible\n==10155== \n==10155== For counts of detected and suppressed errors, rerun with: -v\n==10155== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10278== Memcheck, a memory error detector\n==10278== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10278== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10278== Command: ./part2\n==10278== \n==10278== \n==10278== HEAP SUMMARY:\n==10278==     in use at exit: 0 bytes in 0 blocks\n==10278==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==10278== \n==10278== All heap blocks were freed -- no leaks are possible\n==10278== \n==10278== For counts of detected and suppressed errors, rerun with: -v\n==10278== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10302== Memcheck, a memory error detector\n==10302== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10302== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10302== Command: ./part3\n==10302== \n==10302== \n==10302== HEAP SUMMARY:\n==10302==     in use at exit: 0 bytes in 0 blocks\n==10302==   total heap usage: 14 allocs, 14 frees, 146 bytes allocated\n==10302== \n==10302== All heap blocks were freed -- no leaks are possible\n==10302== \n==10302== For counts of detected and suppressed errors, rerun with: -v\n==10302== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-01-26 22:00:03.753981",
+    "checksum": "7e41ecca56f764ed1c50a90aa4d1719a0d2afaca  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\n88c1580f959944f58ecb6aa920211085e73e3252  part3-functions.c\n",
+    "revision": "4995"
+  },
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==32493== Memcheck, a memory error detector\n==32493== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==32493== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==32493== Command: ./part1\n==32493== \n==32493== \n==32493== HEAP SUMMARY:\n==32493==     in use at exit: 0 bytes in 0 blocks\n==32493==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==32493== \n==32493== All heap blocks were freed -- no leaks are possible\n==32493== \n==32493== For counts of detected and suppressed errors, rerun with: -v\n==32493== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==32616== Memcheck, a memory error detector\n==32616== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==32616== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==32616== Command: ./part2\n==32616== \n==32616== \n==32616== HEAP SUMMARY:\n==32616==     in use at exit: 0 bytes in 0 blocks\n==32616==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==32616== \n==32616== All heap blocks were freed -- no leaks are possible\n==32616== \n==32616== For counts of detected and suppressed errors, rerun with: -v\n==32616== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==32640== Memcheck, a memory error detector\n==32640== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==32640== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==32640== Command: ./part3\n==32640== \n==32640== \n==32640== HEAP SUMMARY:\n==32640==     in use at exit: 28 bytes in 6 blocks\n==32640==   total heap usage: 42 allocs, 36 frees, 4,497 bytes allocated\n==32640== \n==32640== 28 bytes in 6 blocks are definitely lost in loss record 1 of 1\n==32640==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)\n==32640==    by 0x4EC5489: strdup (strdup.c:42)\n==32640==    by 0x400B28: encoder_mapper (part3-main.c:29)\n==32640==    by 0x400965: vector_map (part3-functions.c:18)\n==32640==    by 0x400C0F: main (part3-main.c:51)\n==32640== \n==32640== LEAK SUMMARY:\n==32640==    definitely lost: 28 bytes in 6 blocks\n==32640==    indirectly lost: 0 bytes in 0 blocks\n==32640==      possibly lost: 0 bytes in 0 blocks\n==32640==    still reachable: 0 bytes in 0 blocks\n==32640==         suppressed: 0 bytes in 0 blocks\n==32640== \n==32640== For counts of detected and suppressed errors, rerun with: -v\n==32640== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)\n\nMEMORY ERROR/LEAK!"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-01-28 22:00:04.075926",
+    "checksum": "fa7e4748d6afc9b44766942d1fade600e3444660  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\ndfd67b1b6c0b87a212a19ed7164d0737cfb36db6  part3-functions.c\n",
+    "revision": "7654"
+  },
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10154== Memcheck, a memory error detector\n==10154== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10154== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10154== Command: ./part1\n==10154== \n==10154== \n==10154== HEAP SUMMARY:\n==10154==     in use at exit: 0 bytes in 0 blocks\n==10154==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==10154== \n==10154== All heap blocks were freed -- no leaks are possible\n==10154== \n==10154== For counts of detected and suppressed errors, rerun with: -v\n==10154== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10277== Memcheck, a memory error detector\n==10277== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10277== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10277== Command: ./part2\n==10277== \n==10277== \n==10277== HEAP SUMMARY:\n==10277==     in use at exit: 0 bytes in 0 blocks\n==10277==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==10277== \n==10277== All heap blocks were freed -- no leaks are possible\n==10277== \n==10277== For counts of detected and suppressed errors, rerun with: -v\n==10277== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==10301== Memcheck, a memory error detector\n==10301== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==10301== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==10301== Command: ./part3\n==10301== \n==10301== \n==10301== HEAP SUMMARY:\n==10301==     in use at exit: 0 bytes in 0 blocks\n==10301==   total heap usage: 42 allocs, 42 frees, 4,497 bytes allocated\n==10301== \n==10301== All heap blocks were freed -- no leaks are possible\n==10301== \n==10301== For counts of detected and suppressed errors, rerun with: -v\n==10301== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-01-29 22:00:03.717077",
+    "checksum": "9525c771ee79adbdc7673e820bd020f3311bff41  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\n149f18f3388d3182119d00a6b5d1e7c71a44fcf5  part3-functions.c\n",
+    "revision": "10303"
+  },
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==21763== Memcheck, a memory error detector\n==21763== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==21763== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==21763== Command: ./part1\n==21763== \n==21763== \n==21763== HEAP SUMMARY:\n==21763==     in use at exit: 0 bytes in 0 blocks\n==21763==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==21763== \n==21763== All heap blocks were freed -- no leaks are possible\n==21763== \n==21763== For counts of detected and suppressed errors, rerun with: -v\n==21763== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==21886== Memcheck, a memory error detector\n==21886== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==21886== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==21886== Command: ./part2\n==21886== \n==21886== \n==21886== HEAP SUMMARY:\n==21886==     in use at exit: 0 bytes in 0 blocks\n==21886==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==21886== \n==21886== All heap blocks were freed -- no leaks are possible\n==21886== \n==21886== For counts of detected and suppressed errors, rerun with: -v\n==21886== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==21910== Memcheck, a memory error detector\n==21910== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==21910== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==21910== Command: ./part3\n==21910== \n==21910== \n==21910== HEAP SUMMARY:\n==21910==     in use at exit: 0 bytes in 0 blocks\n==21910==   total heap usage: 42 allocs, 42 frees, 4,497 bytes allocated\n==21910== \n==21910== All heap blocks were freed -- no leaks are possible\n==21910== \n==21910== For counts of detected and suppressed errors, rerun with: -v\n==21910== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-01-30 22:00:04.051575",
+    "checksum": "1837126656d2730c5213242bf03198fb593e9a1b  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\n149f18f3388d3182119d00a6b5d1e7c71a44fcf5  part3-functions.c\n",
+    "revision": "11683"
+  },
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==27478== Memcheck, a memory error detector\n==27478== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==27478== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==27478== Command: ./part1\n==27478== \n==27478== \n==27478== HEAP SUMMARY:\n==27478==     in use at exit: 0 bytes in 0 blocks\n==27478==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==27478== \n==27478== All heap blocks were freed -- no leaks are possible\n==27478== \n==27478== For counts of detected and suppressed errors, rerun with: -v\n==27478== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==27601== Memcheck, a memory error detector\n==27601== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==27601== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==27601== Command: ./part2\n==27601== \n==27601== \n==27601== HEAP SUMMARY:\n==27601==     in use at exit: 0 bytes in 0 blocks\n==27601==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==27601== \n==27601== All heap blocks were freed -- no leaks are possible\n==27601== \n==27601== For counts of detected and suppressed errors, rerun with: -v\n==27601== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==27625== Memcheck, a memory error detector\n==27625== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==27625== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==27625== Command: ./part3\n==27625== \n==27625== \n==27625== HEAP SUMMARY:\n==27625==     in use at exit: 0 bytes in 0 blocks\n==27625==   total heap usage: 42 allocs, 42 frees, 4,497 bytes allocated\n==27625== \n==27625== All heap blocks were freed -- no leaks are possible\n==27625== \n==27625== For counts of detected and suppressed errors, rerun with: -v\n==27625== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-01-31 12:00:03.990674",
+    "checksum": "1837126656d2730c5213242bf03198fb593e9a1b  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\n149f18f3388d3182119d00a6b5d1e7c71a44fcf5  part3-functions.c\n",
+    "revision": "12199"
+  },
+  {
+    "testcases": [
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Checking for memory issues...",
+        "name": "part1_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==1027== Memcheck, a memory error detector\n==1027== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==1027== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==1027== Command: ./part1\n==1027== \n==1027== \n==1027== HEAP SUMMARY:\n==1027==     in use at exit: 0 bytes in 0 blocks\n==1027==   total heap usage: 3 allocs, 3 frees, 4,104 bytes allocated\n==1027== \n==1027== All heap blocks were freed -- no leaks are possible\n==1027== \n==1027== For counts of detected and suppressed errors, rerun with: -v\n==1027== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 1",
+        "name": "part1_test1",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 2",
+        "name": "part1_test2",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 3",
+        "name": "part1_test3",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 4",
+        "name": "part1_test4",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 5",
+        "name": "part1_test5",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 6",
+        "name": "part1_test6",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 7",
+        "name": "part1_test7",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 8",
+        "name": "part1_test8",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 9",
+        "name": "part1_test9",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function 10",
+        "name": "part1_test10",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function clear_bits",
+        "name": "part1_test_clear_bits",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part1: Test function little_automaton()",
+        "name": "part1_test_little_automaton",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part2: Checking for memory issues...",
+        "name": "part2_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==1174== Memcheck, a memory error detector\n==1174== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==1174== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==1174== Command: ./part2\n==1174== \n==1174== \n==1174== HEAP SUMMARY:\n==1174==     in use at exit: 0 bytes in 0 blocks\n==1174==   total heap usage: 1 allocs, 1 frees, 4,096 bytes allocated\n==1174== \n==1174== All heap blocks were freed -- no leaks are possible\n==1174== \n==1174== For counts of detected and suppressed errors, rerun with: -v\n==1174== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 11.0,
+        "ptsPossible": 11.0,
+        "description": "Part2: Test function main",
+        "name": "part2_test_main",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Checking for memory issues...",
+        "name": "part3_memory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\n==1199== Memcheck, a memory error detector\n==1199== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.\n==1199== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info\n==1199== Command: ./part3\n==1199== \n==1199== \n==1199== HEAP SUMMARY:\n==1199==     in use at exit: 0 bytes in 0 blocks\n==1199==   total heap usage: 42 allocs, 42 frees, 4,497 bytes allocated\n==1199== \n==1199== All heap blocks were freed -- no leaks are possible\n==1199== \n==1199== For counts of detected and suppressed errors, rerun with: -v\n==1199== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)\n"
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Concat Reducer",
+        "name": "part3_test_concat_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Length Reducer",
+        "name": "part3_test_length_reducer",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 1.0,
+        "ptsPossible": 1.0,
+        "description": "Part3: Test Mapper",
+        "name": "part3_test_mapper",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      }
+    ],
+    "timestamp": "2018-02-01 00:00:04.428556",
+    "checksum": "1837126656d2730c5213242bf03198fb593e9a1b  part1-functions.c\nf5f84045063c29c35c358f90238ce2e19d1a945c  part2-main.c\n149f18f3388d3182119d00a6b5d1e7c71a44fcf5  part3-functions.c\n",
+    "revision": "13117"
+  }
+]

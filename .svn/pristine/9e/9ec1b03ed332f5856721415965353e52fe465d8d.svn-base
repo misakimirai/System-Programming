@@ -1,0 +1,184 @@
+[
+  {
+    "testcases": [
+      {
+        "ptsPossible": 3.0,
+        "name": "env_test",
+        "description": "Test full env funtionality (hard)",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 2.0,
+        "name": "env_test",
+        "description": "Test full env funtionality",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_exec",
+        "description": "Test env exec failure",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_one",
+        "description": "Test env",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_ref",
+        "description": "Test env referencing variable",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_ref_empty",
+        "description": "Test env referencing nonexistence variable",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_two",
+        "description": "Test env",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_usage",
+        "description": "Test env usage",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "env_test_usage_2",
+        "description": "Test env usage 2",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "time_test",
+        "description": "Test time",
+        "log": "Invalid reported time",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "time_test_exec",
+        "description": "Test time exec failure",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "ptsPossible": 1.0,
+        "name": "time_test_usage",
+        "description": "Test time usage",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      }
+    ],
+    "timestamp": "2018-02-02 22:00:03.889524",
+    "revision": "14641",
+    "checksum": "b7e96394c83fffe09c8784d765faccb912376332  env.c\n5fa33e50956d9e9242d29868b3be81617110dc8f  time.c\n"
+  },
+  {
+    "testcases": [
+      {
+        "description": "Test full env funtionality (hard)",
+        "ptsPossible": 3.0,
+        "name": "env_test",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test full env funtionality",
+        "ptsPossible": 2.0,
+        "name": "env_test",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env exec failure",
+        "ptsPossible": 1.0,
+        "name": "env_test_exec",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env",
+        "ptsPossible": 1.0,
+        "name": "env_test_one",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env referencing variable",
+        "ptsPossible": 1.0,
+        "name": "env_test_ref",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env referencing nonexistence variable",
+        "ptsPossible": 1.0,
+        "name": "env_test_ref_empty",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env",
+        "ptsPossible": 1.0,
+        "name": "env_test_two",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env usage",
+        "ptsPossible": 1.0,
+        "name": "env_test_usage",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test env usage 2",
+        "ptsPossible": 1.0,
+        "name": "env_test_usage_2",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test time",
+        "ptsPossible": 1.0,
+        "name": "time_test",
+        "log": "Invalid reported time",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test time exec failure",
+        "ptsPossible": 1.0,
+        "name": "time_test_exec",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test time usage",
+        "ptsPossible": 1.0,
+        "name": "time_test_usage",
+        "log": "Did not find correct output",
+        "ptsEarned": 0.0
+      }
+    ],
+    "checksum": "b7e96394c83fffe09c8784d765faccb912376332  env.c\n5fa33e50956d9e9242d29868b3be81617110dc8f  time.c\n",
+    "revision": "18848",
+    "timestamp": "2018-02-04 22:00:03.867219"
+  }
+]

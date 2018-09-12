@@ -1,0 +1,226 @@
+[
+  {
+    "testcases": [
+      {
+        "description": "Checks the && logical operator is working",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "and_operator_test",
+        "ptsPossible": 2.0,
+        "ptsEarned": 1.0
+      },
+      {
+        "description": "Attempt to cd to a directory",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "cd_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if we can run a process in the background (this test will not pass if you do not have the basic non-built in command features implemented)",
+        "log": "Failed test (core functionality)",
+        "name": "check_background_process",
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checks that process groups are used correctly (requires basic commands and signal handling to work)",
+        "log": "Failed test (core functionality)",
+        "name": "check_background_process_group",
+        "ptsPossible": 3.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if history works (you need to have basic non-builtin commands working)",
+        "log": "Error: Failed to find output of correct history",
+        "name": "check_history",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if zombie processes are cleaned up",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "cleanup_zombie",
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0
+      },
+      {
+        "description": "Checking if SIGINT is blocked",
+        "log": "Shell quit with sigint",
+        "name": "control_c_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if shell handles empty inputs correctly",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "eof_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0
+      },
+      {
+        "description": "Tests escaping.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "escape_test",
+        "ptsPossible": 12.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if shell exits correctly",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "exit_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0
+      },
+      {
+        "description": "Run 1 command with -f (you should have commands working already).",
+        "log": "Program failed to print out commands read from file",
+        "name": "file_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Runs more commands with -f (you should have commands working already).",
+        "log": "Program failed to print out commands read from file or read all commands from file",
+        "name": "file_test_hard",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Runs hard commands with -f (you should have commands working already) and checks if it exits at EOF.",
+        "log": "Error: Your program didn't run the given commands from a file.",
+        "name": "file_test_hard2",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test history file behavior.",
+        "log": "Program failed to print out commands read from file",
+        "name": "history_file_test",
+        "ptsPossible": 5.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking that invalid commands are invalidated (you should have commands working already).",
+        "log": "Error: couldn't find error message for running invalid command",
+        "name": "invalid_command",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if rerunning a nonexistent command by history index fails.",
+        "log": "Error: couldn't find error message for running invalid index",
+        "name": "invalid_query_index_history",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if rerunning a nonexistent command by invalid query fails",
+        "log": "Error: couldn't find error for not finding matching prefix in history",
+        "name": "invalid_query_search_history",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Memory test - does not depend on shell functionality.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "memory_check",
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0
+      },
+      {
+        "description": "Memory check hard (all features need to work for this).",
+        "log": "Error: Your program didn't run the given commands from a file.",
+        "name": "memory_check_hard",
+        "ptsPossible": 5.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checks the || logical operator is working",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "or_operator_test",
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Testing echo and printing.",
+        "log": "Error: command did not run",
+        "name": "print_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test that ps works correctly",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "ps_test",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Test that ps works correctly (difficult, requires job control)",
+        "log": "Failed test (core functionality)",
+        "name": "ps_test_hard",
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if we can rerun a command by index (need to have non-builtin commands working)",
+        "log": "Error: Failed to run command by index",
+        "name": "query_index_history",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if we can rerun a command by index (you need to have all commands working for this)",
+        "log": "Error: Failed to run command by index",
+        "name": "query_index_history_hard",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if we can rerun a command by last closest match (need to have non-builtin commands working)",
+        "log": "Error: failed to run queried command",
+        "name": "query_search_history",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checking if we can rerun a command by last closest match (hard version and need to have non-builtin commands working)",
+        "log": "Error: failed to run queried command",
+        "name": "query_search_history_hard",
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Checks the ; operator is working",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "separator_operator_test",
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Tests STOP, CONT, and KILL",
+        "log": "Failed test (core functionality)",
+        "name": "stop_cont_kill_test",
+        "ptsPossible": 6.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Tests export and variable expansion. (Both must work to pass.)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "variable_test",
+        "ptsPossible": 6.0,
+        "ptsEarned": 0.0
+      },
+      {
+        "description": "Tests export, variable expansion, & escaping. Difficult. (Both must work to pass.)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "name": "variable_test_hard",
+        "ptsPossible": 16.0,
+        "ptsEarned": 0.0
+      }
+    ],
+    "timestamp": "2018-02-06 22:00:09.231921",
+    "checksum": "eba2a22399d85d64e36c89af99ce13b9415e3a56  shell.c\n",
+    "revision": "23803"
+  }
+]

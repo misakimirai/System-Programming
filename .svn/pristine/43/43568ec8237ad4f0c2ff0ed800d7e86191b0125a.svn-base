@@ -1,0 +1,530 @@
+/**
+* Networking Lab
+* CS 241 - Spring 2018
+*/
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <sys/epoll.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <fcntl.h>
+#include <signal.h>
+#include <arpa/inet.h>
+#include <netdb.h>
+
+#include "vector.h"
+#include "dictionary.h"
+#include "common.h"
+#include "format.h"
+
+
+// Global variable Here
+
+typedef struct connection_state {
+    int header_parsed;
+    int fildes;
+    char *file_name;
+    verb method;
+    size_t total_size;
+    size_t write_size;
+    char *buffer;
+    int offset;
+    size_t header_count;
+    char *header;
+} connection_state;
+
+static char *dir;
+static vector *files;
+static dictionary *dict;
+
+void handle_delete (connection_state *curr_state, int fd) {
+  char *name = curr_state->file_name;
+  int find = 0;
+  for(size_t i = 0; i < vector_size(files); i++){
+    char* file = vector_get(files,i);
+    if(!strncmp(file, name, strlen(file))){
+      find = 1;
+      vector_erase(files, i);
+      break;
+    }
+  }
+  if (find) {
+    chdir(dir);
+    if (remove(name) == 0) {
+      write(fd, "OK\n", 3);
+    }
+    chdir("..");
+  }
+  else {
+    // char error_message[1024];
+    // sprintf(error_message, "ERROR\n%s", err_no_such_file);
+    // write(fd, error_message, strlen(error_message));
+    write(fd,"ERROR\n",6);
+    write(fd, err_no_such_file, strlen(err_no_such_file));
+  }
+  dictionary_remove(dict, &fd);
+  close(fd);
+}
+
+void handle_list (int fd) {
+  write(fd, "OK\n", 3);
+  size_t number = vector_size(files);
+  size_t file_size = 0;
+  if (number) {
+    write_message_size(0, fd);
+  }
+  else {
+    for (size_t i = 0; i < number; i++) {
+      file_size += strlen((char *)vector_get(files, i));
+    }
+    write_message_size((u_int64_t)(file_size + number - 1), fd);
+    char *temp = calloc(1, file_size + number);
+    for (size_t i = 0; i < number; i++) {
+      temp = strcat(temp, (char *)vector_get(files, i));
+      if (i != number - 1) {
+        temp = strcat(temp, "\n");
+      }
+    }
+    write(fd, temp, file_size + number - 1);
+    free(temp);
+  }
+
+  dictionary_remove(dict, &fd);
+  close(fd);
+}
+
+void handle_get (connection_state *curr_state, int fd) {
+  printf("Yes I found %d\n", __LINE__);
+  char *name = curr_state->file_name;
+  int find = 0;
+  for(size_t i = 0; i < vector_size(files); i++){
+    char* file = vector_get(files,i);
+    if(!strncmp(file, name, strlen(file))){
+      find = 1;
+      vector_erase(files, i);
+      break;
+    }
+  }
+  if (find) {
+    printf("Yes I found %d\n", __LINE__);
+
+    char temp_path[512];
+    memset(temp_path , 0, 512);
+    sprintf(temp_path, "%s/%s", dir, name);
+    printf("The temp_path is %s\n", temp_path);
+    int target = open(temp_path, O_RDONLY);
+    if (target >= 0) {
+      write(fd,"OK\n",3);
+      size_t size = lseek(target, 0, SEEK_END);
+      write_message_size((u_int64_t)size ,fd);
+      lseek(curr_state->fildes, 0, SEEK_SET);
+      char buffer[4096];
+      int length;
+      while((length = read(target, buffer, 4095)) > 0){
+        write_all_to_socket(fd, buffer, length);
+      }
+      close(target);
+    }
+    else {
+      perror("open file");
+    }
+  }
+  else {
+    write(fd, "ERROR\n", 6);
+    write(fd, err_no_such_file, strlen(err_no_such_file));
+  }
+  // dictionary_remove(dict, &fd);
+  close(fd);
+}
+
+void handle_put (connection_state *curr_state) {
+  curr_state->write_size += write_all_to_socket(curr_state->fildes, curr_state->buffer, strlen(curr_state->buffer));
+}
+
+
+int parse_header_helper (connection_state *curr_state) {
+  printf("The header is %s \n", curr_state->header);
+
+  int length = curr_state->offset - 1;
+  if (length < 3) {
+    print_error_message((char *)err_bad_request);
+    return -1;
+  }
+  if (strncmp(curr_state->header, "PUT", 3) == 0) {
+    curr_state->method = PUT;
+    if (length <= 4) {
+      print_error_message((char *)err_bad_request);
+      return -1;
+    }
+    char *new_line = strchr(curr_state->header, '\n');
+    int temp = curr_state->header_count - curr_state->offset + 1;
+    printf("The length of header is %zu, the length of offset is %d, the temp is %d\n", curr_state->header_count, (int)curr_state->offset, temp);
+    if (temp < 8) {
+      // we can not get total_size, read more to parse
+      printf("I go here%d.\n", __LINE__);
+      return 0;
+    }
+    curr_state->total_size = *((size_t *)(new_line + 1));
+    printf("The whole size of the file is %zu.\n", curr_state->total_size);
+    memcpy(curr_state->file_name, curr_state->header + 4, length - 4);
+    printf("The filename is %s\n", curr_state->file_name);
+    char temp_path[512];
+    memset(temp_path , 0, 512);
+    sprintf(temp_path, "%s/%s", dir, curr_state->file_name);
+
+    printf("The path is %s\n", temp_path);
+
+    curr_state->fildes = open(temp_path, O_CREAT | O_TRUNC | O_RDWR, 0666);
+
+    int forward = curr_state->offset + 8;
+    printf("Now the remaining_bytes is %s\n", curr_state->header + forward);
+
+    char* now = curr_state->header + forward;
+    printf("The header now is %s.", curr_state->header);
+
+    uint64_t now_size = (uint64_t)(curr_state->header_count - curr_state->offset - 8);
+    curr_state->write_size += write_all_to_socket(curr_state->fildes, now, now_size);
+    printf("I have write %zu\n", curr_state->write_size);
+    curr_state->header = NULL;
+  }
+  else if (strncmp(curr_state->header, "LIST", 4) == 0) {
+    curr_state->method = LIST;
+    if (length != 4) {
+      print_error_message((char *)err_bad_request);
+      return -1;
+    }
+  }
+  else if (strncmp(curr_state->header, "DELETE", 6) == 0) {
+    curr_state->method = DELETE;
+    if (length <= 4) {
+      print_error_message((char *)err_bad_request);
+      return -1;
+    }
+    memcpy(curr_state->file_name, curr_state->header + 7, length - 7);
+    printf("The file name is %s.\n", curr_state->file_name);
+  }
+  else if (strncmp(curr_state->header, "GET", 3) == 0) {
+    curr_state->method = GET;
+    if (length <= 4) {
+      print_error_message((char *)err_bad_request);
+      return -1;
+    }
+    memcpy(curr_state->file_name, curr_state->header + 4, length - 4);
+    printf("The file name is %s.\n", curr_state->file_name);
+  }
+  else {
+    print_error_message((char*)err_bad_request);
+    return -1;
+  }
+
+  curr_state->header_parsed = 1;
+  return 0;
+}
+
+int parse_header (connection_state *curr_state, char *buffer, size_t size) {
+  // curr_state->header = realloc(curr_state->header, curr_state->header_count + size + 1);
+  // curr_state->header = memmove(curr_state->header + curr_state->header_count, buffer, size);
+  curr_state->header_count += size;
+  printf("The count is %zu\n", size);
+  strcat(curr_state->header, buffer);
+  printf("The header is: %s\n", curr_state->header);
+  // curr_state->header[curr_state->header_count] = '\0';
+  char *new_line = strchr(curr_state->header, '\n');
+  if (!new_line) {
+    // Can not parse now, wait until next loop
+    printf("No new line%d\n", __LINE__);
+    return 0;
+  }
+  else {
+    curr_state->offset = new_line - curr_state->header + 1;
+    printf("The offset is %d, the total length is %zu\n", curr_state->offset, curr_state->header_count);
+    return parse_header_helper(curr_state);
+  }
+}
+
+void initialize(int fd) {
+  connection_state *new_state = calloc(1, sizeof(connection_state));
+  new_state->header_parsed = 0;
+  new_state->fildes = -1;
+  new_state->file_name = calloc(1, 128);
+  new_state->method = V_UNKNOWN;
+  new_state->write_size = 0;
+  new_state->total_size = 0;
+  new_state->buffer = calloc(1, 2048);
+  new_state->header_count = 0;
+  new_state->header = calloc(1, 1024);
+  dictionary_set(dict, (void *)((size_t)fd), new_state);
+}
+
+
+void handle_data(int fd) {
+  if (!dictionary_contains(dict, &fd)) {
+    initialize(fd);
+  }
+  connection_state *curr_state = dictionary_get(dict, (void *)((size_t)fd));
+  while(1) {
+  	char *buff = calloc(1, 65536);
+		ssize_t count = read(fd, buff, 65535);
+		if(count == -1) {
+			if(errno != EAGAIN && errno != EWOULDBLOCK) {//error exit
+				perror("read error");
+				printf("Closed connection on descriptor %d with error\n", fd);
+				close(fd);
+        free(buff);
+        if (curr_state->fildes != -1) {
+          close(curr_state->fildes);
+        }
+        if (curr_state->file_name) {
+          free(curr_state->file_name);
+        }
+        if (curr_state->buffer) {
+          free(curr_state->buffer);
+        }
+        if (curr_state->header) {
+          free(curr_state->header);
+        }
+        free(curr_state);
+        dictionary_remove(dict, (void *)((size_t)fd));
+			}
+			break;
+		}
+		else if (count == 0) {//clean exit
+      if (curr_state->method == PUT) {
+        if (curr_state->write_size + 1 == curr_state->total_size) {
+          write(fd, "OK\n", 3);
+          int find = 0;
+          for (size_t i = 0; i < vector_size(files); i++) {
+              char* file = vector_get(files,i);
+              if(!strcmp(file, curr_state->file_name)){
+                find = 1;
+                break;
+              }
+          }
+          if (!find) {
+            vector_push_back(files, curr_state->file_name);
+          }
+        }
+        else {
+          char *error_message = calloc(1, 1024);
+          sprintf(error_message, "ERROR\n%s", err_bad_file_size);
+          write(fd, error_message, strlen(error_message));
+          free(error_message);
+        }
+      }
+			printf("Closed connection on descriptor %d\n", fd);
+			close(fd);
+      free(buff);
+      if (curr_state->fildes != -1) {
+        close(curr_state->fildes);
+      }
+      if (curr_state->file_name) {
+        free(curr_state->file_name);
+      }
+      if (curr_state->buffer) {
+        free(curr_state->buffer);
+      }
+      if (curr_state->header) {
+        free(curr_state->header);
+      }
+      free(curr_state);
+      dictionary_remove(dict, (void *)((size_t)fd));
+			break;
+		}
+
+    if (!curr_state->header_parsed) {
+      int result = parse_header(curr_state, buff, count);
+      if (result == -1) {
+        print_invalid_response();
+        close(fd);
+        free(buff);
+        if (curr_state->fildes != -1) {
+          close(curr_state->fildes);
+        }
+        if (curr_state->file_name) {
+          free(curr_state->file_name);
+        }
+        if (curr_state->buffer) {
+          free(curr_state->buffer);
+        }
+        if (curr_state->header) {
+          free(curr_state->header);
+        }
+        free(curr_state);
+        dictionary_remove(dict, (void *)((size_t)fd));
+  			break;
+      }
+    }
+
+    if (curr_state->header_parsed){
+      verb command = curr_state->method;
+      if (command == GET) {
+        handle_get(curr_state, fd);
+      }
+      else if (command == PUT) {
+        if (!curr_state->header) {
+          // has been parsed but have other inputs
+          char *for_dup = strdup(buff);
+          curr_state->buffer = for_dup;
+          handle_put(curr_state);
+        }
+      }
+      else if (command == DELETE) {
+        handle_delete(curr_state, fd);
+      }
+      else if (command == LIST) {
+        handle_list(fd);
+      }
+    }
+
+    free(buff);
+    // if (buff) {
+    //   printf("check for invalid free at %d\n", __LINE__);
+    //   free(buff);
+    //   printf("check for invalid free at %d\n", __LINE__);
+    // }
+
+
+	}
+
+}
+
+
+void accept_connections(int epoll_fd, struct epoll_event *e) {
+  while (1) {
+    struct sockaddr_in new_addr;
+		socklen_t new_len = sizeof(new_addr);
+		int new_fd = accept(e->data.fd, (struct sockaddr*) &new_addr, &new_len);
+    if(new_fd == -1) {
+			// All pending connections handled
+			if(errno == EAGAIN || errno == EWOULDBLOCK) {
+        break;
+      }
+			else {
+				perror("accept");
+				exit(1);
+			}
+		}
+    char *connected_ip= inet_ntoa(new_addr.sin_addr);
+		int port = ntohs(new_addr.sin_port);
+    printf("Accepted Connection %s port %d\n", connected_ip, port);
+
+    int flags = fcntl(new_fd, F_GETFL, 0);
+    fcntl(new_fd, F_SETFL, flags | O_NONBLOCK);
+    struct epoll_event event;
+    memset(&event, 0, sizeof(struct epoll_event));
+    event.data.fd = new_fd;
+    event.events = EPOLLIN | EPOLLET;
+    if(epoll_ctl (epoll_fd, EPOLL_CTL_ADD, new_fd, &event) == -1) {
+    	perror("accept epoll_ctl");
+    	exit(1);
+    }
+    initialize(new_fd);
+  }
+}
+
+void close_server () {
+  vector *dict_vec = dictionary_values(dict);
+  for (size_t i = 0; i < vector_size(dict_vec); i++) {
+    connection_state *curr_state = vector_get(dict_vec, i);
+    if (curr_state->fildes != -1) {
+      close(curr_state->fildes);
+    }
+    if (curr_state->file_name) {
+      free(curr_state->file_name);
+    }
+    if (curr_state->buffer) {
+      free(curr_state->buffer);
+    }
+    if (curr_state->header) {
+      free(curr_state->header);
+    }
+    free(curr_state);
+  }
+  vector_destroy(dict_vec);
+  dictionary_destroy(dict);
+  chdir(dir);
+  for (size_t i = 0; i < vector_size(files); i++) {
+    char *temp = vector_get(files, i);
+    unlink(temp);
+  }
+  chdir("..");
+  rmdir(dir);
+  vector_destroy(files);
+  exit(0);
+}
+
+int main(int argc, char **argv) {
+    // good luck!
+    signal(SIGINT, close_server);
+    signal(SIGPIPE, SIG_IGN);
+    if (argc != 2) {
+      exit(1);
+    }
+
+    // establish server
+    int sock_fd = socket(AF_INET, SOCK_STREAM | SOCK_NONBLOCK, 0);
+    int optval = 1;
+    setsockopt(sock_fd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof(optval));
+
+    struct addrinfo hints, *result;
+    memset(&hints, 0, sizeof(struct addrinfo));
+    hints.ai_family = AF_INET;
+    hints.ai_socktype = SOCK_STREAM;
+    hints.ai_flags = AI_PASSIVE;
+
+    int s = getaddrinfo(NULL, argv[1], &hints, &result);
+    if (s != 0) {
+        fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(s));
+        exit(1);
+    }
+
+    if ( bind(sock_fd, result->ai_addr, result->ai_addrlen) != 0 ) {
+        perror("bind()");
+        exit(1);
+    }
+
+    if ( listen(sock_fd, 128) != 0 ) {
+        perror("listen()");
+        exit(1);
+    }
+
+    struct sockaddr_in *result_addr = (struct sockaddr_in *) result->ai_addr;
+    printf("Listening on file descriptor %d, port %d\n", sock_fd, ntohs(result_addr->sin_port));
+
+    int epoll_fd = epoll_create(1);
+  	if (epoll_fd == -1) {
+      perror("epoll_create");
+      exit(1);
+    }
+    struct epoll_event event;
+    memset(&event, 0, sizeof(struct epoll_event));
+    event.data.fd = sock_fd;
+    event.events = EPOLLIN | EPOLLOUT;
+    if (epoll_ctl(epoll_fd, EPOLL_CTL_ADD, sock_fd, &event)) {
+        perror("epoll_ctl: sock_fd");
+        exit(1);
+    }
+
+    char temp[] = "XXXXXX";
+    dir = mkdtemp(temp);
+    print_temp_directory(dir);
+
+    files = string_vector_create();
+    dict = shallow_to_shallow_dictionary_create();
+
+    while (1) {
+      struct epoll_event new_event;
+      if (epoll_wait(epoll_fd, &new_event, 1, -1) > 0) {
+        if (sock_fd == new_event.data.fd) {
+          accept_connections(epoll_fd, &new_event);
+        }
+        else {
+          handle_data(new_event.data.fd);
+        }
+      }
+    }
+}

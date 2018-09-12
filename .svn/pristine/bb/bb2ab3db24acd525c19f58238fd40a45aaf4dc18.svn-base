@@ -1,0 +1,254 @@
+[
+  {
+    "timestamp": "2018-04-06 22:00:01.756807",
+    "checksum": "02fa837a29657c590af66b81ffe3988edf034ac9  libscheduler.c\n",
+    "testcases": [
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "name": "test_avg_resp_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_turnaround_time reports correct values (depends on working comparers)",
+        "name": "test_avg_turn_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "name": "test_avg_wait_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_fcfs",
+        "name": "test_comparer_fcfs"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_ppri",
+        "name": "test_comparer_ppri"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_pri",
+        "name": "test_comparer_pri"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_psrtf",
+        "name": "test_comparer_psrtf"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_sjf",
+        "name": "test_comparer_sjf"
+      },
+      {
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "description": "Tests that under correct usage there are no memory errors (depends on comparers and all callback functions not crashing)",
+        "name": "test_memory"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test scheduler_new_job fills out job->metadata",
+        "name": "test_new_job"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test that quantum_expired works correctly with RR scheme",
+        "name": "test_quantum_expired_rr"
+      }
+    ],
+    "revision": "84268"
+  },
+  {
+    "timestamp": "2018-04-08 22:00:01.912761",
+    "testcases": [
+      {
+        "ptsEarned": 0.0,
+        "name": "test_avg_resp_time",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_avg_turn_time",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_turnaround_time reports correct values (depends on working comparers)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_avg_wait_time",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_comparer_fcfs",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_fcfs",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_comparer_ppri",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_ppri",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_comparer_pri",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_pri",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_comparer_psrtf",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_psrtf",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_comparer_sjf",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_sjf",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 1.0,
+        "name": "test_memory",
+        "ptsPossible": 1.0,
+        "description": "Tests that under correct usage there are no memory errors (depends on comparers and all callback functions not crashing)",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_new_job",
+        "ptsPossible": 1.0,
+        "description": "Test scheduler_new_job fills out job->metadata",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      },
+      {
+        "ptsEarned": 0.0,
+        "name": "test_quantum_expired_rr",
+        "ptsPossible": 1.0,
+        "description": "Test that quantum_expired works correctly with RR scheme",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test"
+      }
+    ],
+    "checksum": "02fa837a29657c590af66b81ffe3988edf034ac9  libscheduler.c\n",
+    "revision": "85243"
+  },
+  {
+    "timestamp": "2018-04-09 22:00:01.937617",
+    "checksum": "02fa837a29657c590af66b81ffe3988edf034ac9  libscheduler.c\n",
+    "testcases": [
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "name": "test_avg_resp_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_turnaround_time reports correct values (depends on working comparers)",
+        "name": "test_avg_turn_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Tests that scheduler_average_waiting_time reports correct values (depends on working comparers)",
+        "name": "test_avg_wait_time"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_fcfs",
+        "name": "test_comparer_fcfs"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_ppri",
+        "name": "test_comparer_ppri"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_pri",
+        "name": "test_comparer_pri"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_psrtf",
+        "name": "test_comparer_psrtf"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test comparer_sjf",
+        "name": "test_comparer_sjf"
+      },
+      {
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.",
+        "ptsPossible": 1.0,
+        "description": "Tests that under correct usage there are no memory errors (depends on comparers and all callback functions not crashing)",
+        "name": "test_memory"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test scheduler_new_job fills out job->metadata",
+        "name": "test_new_job"
+      },
+      {
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nFailed test",
+        "ptsPossible": 1.0,
+        "description": "Test that quantum_expired works correctly with RR scheme",
+        "name": "test_quantum_expired_rr"
+      }
+    ],
+    "revision": "86208"
+  }
+]

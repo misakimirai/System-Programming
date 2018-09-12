@@ -1,0 +1,254 @@
+[
+  {
+    "timestamp": "2018-04-04 22:00:29.926407",
+    "checksum": "15b9ce257a0b5773dfb23ad1dd30c341c2137884  mapreduce.c\n",
+    "revision": "83737",
+    "testcases": [
+      {
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Large Input",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers\nCouldn't open/read output file"
+      },
+      {
+        "description": "Correct number of mappers are used.",
+        "ptsPossible": 1.0,
+        "name": "Multiple Mappers",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers with mappers of 0"
+      },
+      {
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "ptsPossible": 2.0,
+        "name": "Performance",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nCouldn't open/read output files"
+      },
+      {
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Small Input",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers, with mappers of 0\nUnable to open/read output file"
+      },
+      {
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "ptsPossible": 1.0,
+        "name": "Splitter Usage",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nData was not split evenly among mappers"
+      }
+    ]
+  },
+  {
+    "timestamp": "2018-04-06 22:00:29.999777",
+    "checksum": "15b9ce257a0b5773dfb23ad1dd30c341c2137884  mapreduce.c\n",
+    "revision": "84268",
+    "testcases": [
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "name": "Large Input",
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers\nCouldn't open/read output file"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "name": "Multiple Mappers",
+        "description": "Correct number of mappers are used.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers with mappers of 0"
+      },
+      {
+        "ptsPossible": 2.0,
+        "ptsEarned": 0.0,
+        "name": "Performance",
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nCouldn't open/read output files"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "name": "Small Input",
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers, with mappers of 0\nUnable to open/read output file"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "name": "Splitter Usage",
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nData was not split evenly among mappers"
+      }
+    ]
+  },
+  {
+    "timestamp": "2018-04-07 22:00:30.012291",
+    "checksum": "15b9ce257a0b5773dfb23ad1dd30c341c2137884  mapreduce.c\n",
+    "revision": "84587",
+    "testcases": [
+      {
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Large Input",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers\nCouldn't open/read output file"
+      },
+      {
+        "description": "Correct number of mappers are used.",
+        "ptsPossible": 1.0,
+        "name": "Multiple Mappers",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers with mappers of 0"
+      },
+      {
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "ptsPossible": 2.0,
+        "name": "Performance",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nCouldn't open/read output files"
+      },
+      {
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Small Input",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nIncorrect number of mappers, with mappers of 0\nUnable to open/read output file"
+      },
+      {
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "ptsPossible": 1.0,
+        "name": "Splitter Usage",
+        "ptsEarned": 0.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nData was not split evenly among mappers"
+      }
+    ]
+  },
+  {
+    "timestamp": "2018-04-08 22:00:30.058443",
+    "checksum": "3843502e22e405b2e58470fed8785d2ebb9935bc  mapreduce.c\n",
+    "revision": "85244",
+    "testcases": [
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 0.0,
+        "name": "Large Input",
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nTimeout"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Multiple Mappers",
+        "description": "Correct number of mappers are used.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsPossible": 2.0,
+        "ptsEarned": 2.0,
+        "name": "Performance",
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nTest passed"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Small Input",
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Splitter Usage",
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      }
+    ]
+  },
+  {
+    "timestamp": "2018-04-09 12:00:30.600308",
+    "checksum": "f23f17aad9ea0da9a5ad91b4d1f68f73d676ac38  mapreduce.c\n",
+    "revision": "85592",
+    "testcases": [
+      {
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Large Input",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "description": "Correct number of mappers are used.",
+        "ptsPossible": 1.0,
+        "name": "Multiple Mappers",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "ptsPossible": 2.0,
+        "name": "Performance",
+        "ptsEarned": 2.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nTest passed"
+      },
+      {
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "ptsPossible": 1.0,
+        "name": "Small Input",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "ptsPossible": 1.0,
+        "name": "Splitter Usage",
+        "ptsEarned": 1.0,
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      }
+    ]
+  },
+  {
+    "timestamp": "2018-04-10 00:00:30.095160",
+    "checksum": "f23f17aad9ea0da9a5ad91b4d1f68f73d676ac38  mapreduce.c\n",
+    "revision": "86406",
+    "testcases": [
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Large Input",
+        "description": "Runs mapreduce on a large input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Multiple Mappers",
+        "description": "Correct number of mappers are used.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsPossible": 2.0,
+        "ptsEarned": 2.0,
+        "name": "Performance",
+        "description": "Tests performance of 1 mapper vs multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code.\nTest passed"
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Small Input",
+        "description": "Runs mapreduce on a small input with multiple mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      },
+      {
+        "ptsPossible": 1.0,
+        "ptsEarned": 1.0,
+        "name": "Splitter Usage",
+        "description": "Test that splitter is used correctly to feed data to mappers.",
+        "log": "Trying to compile your code...\nSuccessfully compiled your code.\nTrying to compile your code...\nSuccessfully compiled your code."
+      }
+    ]
+  }
+]

@@ -1,0 +1,137 @@
+/**
+* Parallel Make Lab
+* CS 241 - Spring 2018
+*/
+
+
+#include "format.h"
+#include "graph.h"
+#include "parmake.h"
+#include "parser.h"
+#include "set.h"
+#include "dictionary.h"
+#include "vector.h"
+
+#include <unistd.h>
+#include <time.h>
+#include <sys/stat.h>
+
+
+graph *graph_rule;
+set *traversed;
+vector *task;
+// pthread_mutex_t first = PTHREAD_MUTEX_INITIALIZER;
+// pthread_mutex_t second = PTHREAD_MUTEX_INITIALIZER;
+
+int cycle_det(char* target) {
+  vector *curr = string_vector_create();
+  vector_push_back(curr, target);
+  set_add(traversed, target);
+  while (!vector_empty(curr)) {
+    char *temp = strdup(*((char**)(vector_back(curr))));
+    vector_pop_back(curr);
+    vector *dependencies = graph_neighbors(graph_rule, temp);
+    free(temp);
+    for (size_t i = 0; i < vector_size(dependencies); i++) {
+      temp = (char*)vector_get(dependencies, i);
+      if (set_contains(traversed, temp)) {
+        return 1;
+      }
+      set_add(traversed, temp);
+      vector_push_back(curr, temp);
+    }
+  }
+  vector_destroy(curr);
+  return 0;
+}
+
+int run_command(char *target) {
+  vector *dep_rules = graph_neighbors(graph_rule, target);
+  // failed -> mark weather the rule is failing
+  int failed = 0;
+  for (size_t i = 0; i < vector_size(dep_rules); i++) {
+    rule_t *temp_rule = (rule_t*)graph_get_vertex_value(graph_rule, vector_get(dep_rules, i));
+    if (run_command(temp_rule->target) == -1) {
+      failed = 1;
+    }
+  }
+  rule_t *curr_rule = graph_get_vertex_value(graph_rule, target);
+  if (failed) {
+    curr_rule->state = -1;
+    vector_destroy(dep_rules);
+    return -1;
+  }
+  int ondisc = access(curr_rule->target, F_OK);
+  int run_rule = 0;
+  if (ondisc != -1) {
+    struct stat time1;
+    struct stat time2;
+    stat(curr_rule->target, &time1);
+    for (size_t i = 0; i < vector_size(dep_rules); i++) {
+      char *curr_rule_dep = vector_get(dep_rules, i);
+      if (access(curr_rule_dep, F_OK) == -1) {
+        run_rule = 1;
+        break;
+      }
+      stat(curr_rule_dep, &time2);
+      if (difftime(time1.st_mtime, time2.st_mtime) < 0) {
+        run_rule = 1;
+        break;
+      }
+    }
+    if (!run_rule) {
+      curr_rule->state = 1;
+      vector_destroy(dep_rules);
+      return 1;
+    }
+  }
+  vector *commands = curr_rule->commands;
+  for (size_t i = 0; i < vector_size(commands); i++) {
+    if (system(vector_get(commands, i)) == -1) {
+      failed = 1;
+    }
+  }
+  if (failed) {
+    curr_rule->state = -1;
+    vector_destroy(dep_rules);
+    return -1;
+  }
+  curr_rule->state = 1;
+  vector_destroy(dep_rules);
+  return 1;
+}
+
+// void helper(size_t num_threads) {
+//   pthread_t id[num_threads];
+//   for (size_t i = 0; i < num_threads; i++) {
+//       id[i] = i;
+//       pthread_create(&id[i], NULL, run_makefile, NULL);
+//   }
+//   void *result[num_threads];
+//   for (size_t i = 0; i < num_threads; i++) {
+//       pthread_join(pthread_id[i], &result[i]);
+//   }
+//   pthread_mutex_destroy(&first);
+//   pthread_mutex_destroy(&second);
+// }
+
+int parmake(char *makefile, size_t num_threads, char **targets) {
+    // good luck!
+    graph_rule = parser_parse_makefile(makefile, targets);
+    vector *target_dep = graph_neighbors(graph_rule, "");
+    for (size_t i = 0; i < vector_size(target_dep); i++) {
+      traversed = string_set_create();
+      char *target = (char*)vector_get(target_dep, i);
+      if (cycle_det(target)) {
+        print_cycle_failure(target);
+      }
+      else {
+        run_command(target);
+      }
+      set_destroy(traversed);
+    }
+    graph_destroy(graph_rule);
+    vector_destroy(target_dep);
+    set_destroy(traversed);
+    return 0;
+}

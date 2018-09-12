@@ -1,0 +1,925 @@
+<!doctype html5>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Grade Report</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-xBuQ/xzmlsLoJpyjoggmTEz8OWUFM0/RC5BsqQBDX2v5cMvDHcMakNTNrHIW2I5f" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <style> .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #93a1a1;
+  background-color: #002b36;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+} </style>
+    <style> body {
+    padding-top: 50px;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    background-color: #F2F2F4;
+    color: #2A2A3F;
+    padding-bottom:50px;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    body {
+        padding-top: 100px;
+    }
+}
+
+.navbar {
+    background-color: #2C72AD;
+    border-color: #2C72AD;
+    border: 0px;
+    border-top:none;
+    box-shadow:none;
+}
+
+.navbar-default .navbar-brand {
+    color: #F2F2F4 !important;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #F2F2F4 !important;
+}
+
+.navbar-collapse {
+    border-top:0px !important;
+    box-shadow:none;
+}
+
+.github-link {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    text-indent: -9999px;
+    width: 32px;
+    height: 32px;
+    background-image: url(NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNjQgNjQiIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDY0IDY0IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBmaWxsPSIjMTgxNjE2IiBkPSJNMzIuNiwzLjRDMTYuMywzLjQsMywxNi43LDMsMzMuMWMwLDEzLjEsOC41LDI0LjIsMjAuMywyOC4xDQoJYzEuNSwwLjMsMi0wLjYsMi0xLjRjMC0wLjcsMC0yLjYsMC01Yy04LjIsMS44LTEwLTQtMTAtNGMtMS4zLTMuNC0zLjMtNC4zLTMuMy00LjNjLTIuNy0xLjgsMC4yLTEuOCwwLjItMS44YzMsMC4yLDQuNSwzLjEsNC41LDMuMQ0KCWMyLjYsNC41LDYuOSwzLjIsOC42LDIuNWMwLjMtMS45LDEtMy4yLDEuOS00Yy02LjYtMC43LTEzLjUtMy4zLTEzLjUtMTQuNmMwLTMuMiwxLjItNS45LDMtNy45Yy0wLjMtMC43LTEuMy0zLjgsMC4zLTcuOA0KCWMwLDAsMi41LTAuOCw4LjEsM2MyLjQtMC43LDQuOS0xLDcuNC0xYzIuNSwwLDUsMC4zLDcuNCwxYzUuNy0zLjgsOC4xLTMsOC4xLTNjMS42LDQuMSwwLjYsNy4xLDAuMyw3LjhjMS45LDIuMSwzLDQuNywzLDcuOQ0KCWMwLDExLjQtNi45LDEzLjktMTMuNSwxNC42YzEuMSwwLjksMiwyLjcsMiw1LjVjMCw0LDAsNy4yLDAsOC4xYzAsMC44LDAuNSwxLjcsMiwxLjRjMTEuOC0zLjksMjAuMi0xNSwyMC4yLTI4LjENCglDNjIuMiwxNi43LDQ5LDMuNCwzMi42LDMuNHoiLz4NCjwvc3ZnPg0K);
+}
+
+h1 {
+    padding-bottom:20px;
+    font-size:48px;
+}
+
+h2 {
+    padding-top: 50px;
+    margin-top: -20px;
+}
+
+@media (max-width: 767px) {
+    h1 {
+        font-size: 36px;
+    }
+
+    h2 {
+        font-size: 22px;
+    }
+
+    p,li {
+        font-size: 12px;
+    }
+}
+
+.staff {
+  width: 100%;
+}
+
+.staff-div {
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+    background-size: cover;
+    padding:0px;
+    border-radius:5px;
+}
+
+.staff-row {
+    margin-top: 40px;
+}
+
+.staff-name {
+    position: absolute;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    color:white;
+    text-align: center;
+    font-size:28px;
+    padding-top: 5px;
+}
+
+ /* Popover */
+.popover {
+    background-color: black;
+    color:black;
+    display:block;
+}
+
+/* Popover Header */
+.popover-title {
+    background-color: black;
+    color: black;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 0px;
+}
+
+.popover-title a {
+    color: white;
+    cursor: pointer;
+}
+
+/* Popover Body */
+.popover-content {
+    background-color: black;
+    padding: 0px;
+}
+
+.popover.top>.arrow:after {
+    border-top-color: black;
+}
+
+table {
+  @extend .table;
+  width: 100%;
+}
+
+.anchor {
+    display: none;
+    padding-left: 5px;
+}
+
+.title-text:hover > .anchor {
+    display: inline;
+}
+
+.day {
+    height:300px;
+    margin-bottom:20px;
+    width:100%;
+    background-color: #FFFFFF;
+    border-radius:3px; /* Has to be equal to the title border */
+}
+
+.day h1 {
+    color: #F2F2F4;
+}
+
+.day-summary, .day-resources {
+    color: black;
+}
+
+.day-resources {
+    position: absolute;
+    bottom: 20px; /* has to be equal to the day margin-bottom */
+}
+
+.day-summary {
+    position: absolute;
+    top: 75px; /* Related to the .day-title height attr */
+}
+
+.day-title-text h3 {
+    margin: 0px;
+}
+
+.day-title {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 3px;
+    height:70px;
+}
+
+.schedule-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+ul.toc {
+    list-style: none;
+    padding-left: 1em;
+}
+
+h1, h2, h3 {
+    color: #2C72AD;
+}
+
+.announcement-card {
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.annoucement-title {
+    margin-top: 5px;
+}
+
+.day-title-h3 {
+    color: #F2F2F4;
+}
+
+img:not(.emoji) {
+    width: 100%;
+}
+
+/* Loader */
+
+.hidden {
+    display: none !important;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+    border-radius: 50%;
+}
+.loader {
+    color: #ffffff;
+    font-size: 11px;
+    text-indent: -99999em;
+    margin: 55px auto;
+    position: relative;
+    width: 10em;
+    height: 10em;
+    box-shadow: inset 0 0 0 1em;
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+.loader:before,
+.loader:after {
+    position: absolute;
+    content: '';
+}
+.loader:before {
+    width: 5.2em;
+    height: 10.2em;
+    background: #0dc5c1;
+    border-radius: 10.2em 0 0 10.2em;
+    top: -0.1em;
+    left: -0.1em;
+    -webkit-transform-origin: 5.2em 5.1em;
+    transform-origin: 5.2em 5.1em;
+    -webkit-animation: load2 2s infinite ease 1.5s;
+    animation: load2 2s infinite ease 1.5s;
+}
+.loader:after {
+    width: 5.2em;
+    height: 10.2em;
+    background: #0dc5c1;
+    border-radius: 0 10.2em 10.2em 0;
+    top: -0.1em;
+    left: 5.1em;
+    -webkit-transform-origin: 0px 5.1em;
+    transform-origin: 0px 5.1em;
+    -webkit-animation: load2 2s infinite ease;
+    animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+@keyframes load2 {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.anchor {
+    text-decoration: none;
+}
+
+.anchor:hover {
+    text-decoration: none;
+}
+
+.fancy-link {
+    text-decoration: underline;
+    color: #0456e0;
+    display: inline-block;
+    position: relative;
+    padding-bottom: 0px;
+}
+
+.fancy-link:hover {
+    color: #3070db;
+}
+
+.container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.navbar-toggle {
+    border-width: 0px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #F2F2F4;
+}
+
+
+.navbar-brand.small {
+    display:none;
+}
+
+@media (max-width: 767px) {
+    .navbar-brand.normal {
+        display:none;
+    }
+
+    .navbar-brand.small {
+        display:inline-block;
+    }
+}
+
+.speaker-wrapper {
+    float: right;
+}
+
+.speaker {
+    background-image: url('data:image/png;base64,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');
+    background-size: cover;
+    height:40px;
+    width:40px;
+    margin-top: 5px;
+}
+
+/***************** Code Copying ***************/
+
+pre {
+    color: #F2F2F4;
+    background-color: #151515;
+    border: inherit;
+}
+
+code {
+    color: #F2F2F4;
+}
+
+.code-copy {
+    float: right;
+    right: 0px;
+    display: none;
+    background-color:black;
+    padding: 5px 5px 5px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+pre code {
+    display: block;
+}
+
+pre:hover > * > .code-copy {
+    display: inline;
+}
+
+.code-copy-textarea {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+}
+
+pre.highlight {
+    margin-bottom: -10px;
+    padding-bottom: 0px;
+}
+
+.highlighter-rouge {
+    background-color: #DFDFDF;
+    color: #151515;
+    border-radius: 5px;
+    padding-top: 4px;
+}
+
+.highlight {
+    background-color: #151515;
+    border: 0px;
+    color: #F2F2F4;
+}
+
+div.highlighter-rouge, figure.highlighter-rouge {
+    background-color: #151515;
+    color: #D7D7D7;
+    padding-bottom: 1.5em;
+    margin-bottom: 0.65em;
+}
+
+.fancy-link code {
+    color: #337ab7;
+}
+
+.fancy-link:hover code {
+    color: #23527c;
+}
+
+.fancy-link:hover:after code {
+    background-color: #337ab7;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    border-top: 0px;
+}
+
+.table {
+    margin-left: 40px;
+    width:75%;
+}
+.search-icon-div {
+    width: initial;
+    padding-left: 10px;
+    background-color: white;
+    height: 34px;
+    border-radius: 3px 0px 0px 3px;
+}
+.glyphicon-search {
+    font-size: 32px;
+    top: 0px;
+    color: #2C72AD;
+}
+
+.search {
+    border-radius: 0px 3px 3px 0px;
+    border: 0px;
+    outline:none;
+    box-shadow:none;
+}
+
+
+.no-gutter > [class*='col-'] {
+    padding-right:0;
+    padding-left:0;
+}
+
+.result-link {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.result-div {
+    padding-bottom: 12px;
+}
+
+.highlight-result {
+    background-color: yellow;
+    border-radius: 3px;
+    color: black;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+h3 {
+    display: inline;
+}
+
+#tests > div:nth-of-type(odd) {
+    background-color:#d0d4db;
+    border-radius:3px;
+}
+
+.test-fail {
+    color: red;
+}
+
+.test-success {
+    color: green;
+}
+.test-class {
+    cursor: pointer;
+}
+
+.test-drawer {
+    cursor: default;
+}
+
+.test-table-title {
+    text-decoration: underline;
+}
+
+.navbar-link {
+    cursor: pointer;
+}
+
+@media (max-width: 400px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .title-text {
+        font-size: 20px;
+    }
+}
+
+body {
+    padding-top: 0px;
+}
+
+.test-fail {
+    text-align: right;
+}
+
+.test-success {
+    text-align: right;
+} </style>
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-default" role="navigation" id="fixed-bar">
+    <div class="container">
+        <div class="navbar-header">
+
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+
+            <span class="navbar-brand navbar-link normal">CS 241: Grade Report</a>
+            <span class="navbar-brand navbar-link small">Grade Report</a>
+        </div>
+
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav" id="nav-list">
+
+          </ul>
+        </div>
+    </div>
+    </nav>
+
+    <div id="offline" class="hidden">
+      <div class="col-md-2 col-sm-1 col-xs-0"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12">
+    <div id="content">
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text">Please View online</h2></div>
+    </div>
+
+    <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+        <p>Please visit your subversion in order to view this report properly https://subversion.ews.illinois.edu/svn/</p>
+      </div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+  <div id="client_error" class="hidden">
+      <div class="col-md-2 col-sm-1 col-xs-0"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12">
+    <div id="content">
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text">Sorry!</h2></div>
+    </div>
+
+    <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+        <p>We have not pushed the grades to your repository yet. Please make a piazza post if one has not already been made. We are working to fix this.</p>
+      </div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div id="server_error" class="hidden">
+      <div class="col-md-2 col-sm-1 col-xs-0"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12">
+    <div id="content">
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text">Server Error!</h2></div>
+    </div>
+
+    <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+        <p>Something is <i>really</i> messed up. We will contact engineering it to fix this.</p>
+      </div></div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div id="main">
+    <div class="col-md-2 col-sm-1 col-xs-0"></div>
+    <div class="col-md-8 col-sm-10 col-xs-12">
+    <div id="contain">
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text">Score: [<span id="total_score">0</span>/<span id="total_points">0</span>]</h2></div>
+
+      <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+        <p>Timestamp: [<span id="timestamp"></span>]</p>
+      </div></div></div>
+      </div></div>
+
+      </div>
+
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text"> Disclaimer </h2> </div>
+      <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+      <p>If this is a pre-deadline autograde, this a preliminary measurement of your grade. If this is after the deadline, this is your final grade for the assignment. Your grade may change up or down based on the correctness of your program. We make every effort to ensure that our autograder is 'smart' enough to not count off for simple things like grammar but, in doing so, we may inadvertently allow for incorrect code to be counted as correct. If we have to change our script to better reflect the correctness of your program, we will run the script on every testcase and update every student's output to ensure fairness.</p>
+      </div></div></div>
+      </div></div>
+      </div>
+
+
+
+      <div class="wrapper">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text"> Academic Integrity </h2> </div>
+      <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+      <p>Cheating is taken very seriously in CS 241 and all cases of cheating will be brought to the University, your department, and your college. You should understand how academic integrity applies to Computer Science courses.</p>
+
+      <p>If you are caught cheating on an assignment and it was your first offense then you will lose all points for the assignment and your final course grade will be lowered by one whole letter grade. If you are caught cheating on an assignment and it was your second offense then you will automatically fail the course.</p>
+
+      <p>Rule of Thumb - If at any point you submit an assignment that does not reflect your understanding of the material, then you have probably cheated.</p>
+
+      <p>Additionally, you may not publish your solutions or leave them in 'plain view' thereby leaving your programs open to copying, which constitutes cheating. If your code or a variation of it is found publicly accessible, then you will receive a letter grade reduction for each assignment. For example, if we find your code on GitHub for one MP then you will receive a letter grade reduction. 2 letter grades for 2 assignments and so on. If you are confused on what it means to be 'publicly accessible', then do not put your code anywhere besides https://subversion.ews.illinois.edu and take measures to ensure that nobody can copy your code, so that you are not charged with a violation.</p>
+      </div></div></div>
+      </div></div>
+      </div>
+
+      <div class="wrapper" style="padding-bottom:40px">
+      <div class="pad"><div class="card">
+      <div class="title"><h2 class="title-text"> Test Cases </h2> </div>
+      <div class="container-fluid"><div class="row"><div class="content col-sm-11 .col-sm-offset-1">
+        <div class="row">
+          <div class="col-sm-4 col-xs-12">
+            <h3 style="text-align:left">Revision: <span id="revision"></span></h3>
+          </div>
+          <div class="col-sm-8 col-xs-12">
+          <h3 style="text-align:right">Timestamp: <span id="time"></span> </h3>
+        </div>
+      </div>
+
+        <h4 style="left:0">SHA1 checksum(s):</h4>
+
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code id="sha1">
+        </code></pre></div></div>
+
+        <div id="tests" class="container-fluid">
+        </div>
+      </div></div></div>
+      </div></div>
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript">"use strict";
+
+$(document).ready(function (){
+
+	function populate_tests(tests) {
+		/**
+		tests=[
+	      {
+	        "name": str,
+	        "description": str,
+	        "ptsPossible": int,
+	        "ptsEarned": int,
+	        "memory": int,
+	        "time": int,
+	        "log": str,
+	       },
+	    ... */
+	    const test_class = $('#tests');
+	    test_class.empty();
+	    test_class.append("<div class='row'><div class='col-sm-6 col-xs-8'> \
+	    	<h4 class='test-table-title'>Name</h4></div>\
+	    	<div class='col-sm-6 col-xs-4' style='text-align:right;'><h4 class='test-table-title'>Score</h4></div></div>");
+	    for (var i = 0; i < tests.length; ++i) {
+	    	const test = tests[i];
+	    	var cls = "test-fail";
+	    	if (test["ptsEarned"] >= test["ptsPossible"]) {
+	    		cls = "test-success";
+	    	}
+	    	const score = "(" + test["ptsEarned"] + "/" + test["ptsPossible"] + ")"
+	    	var h4 = $('<h4></h4>');
+	    	h4.html(test["name"]);
+	    	const test_name = $("<div class='col-sm-6 col-xs-8'></div>");
+	    	test_name.append(h4);
+
+	    	h4 = $('<h4></h4>');
+	    	h4.html(score);
+	    	const score_div = $("<div class='col-sm-6 col-xs-4'></div>");
+	    	score_div.addClass(cls);
+	    	score_div.append(h4);
+
+	    	const wrapper = $("<div class='test-class'></div>");
+	    	wrapper.append(test_name);
+	    	wrapper.append(score_div);
+
+
+	    	const drawer = $("<div class='container-fluid'><div class='row'><div class='col-sm-12'>\
+	    		<div class='test-drawer'></div></div></div></div>")
+	    	drawer.addClass('hidden');
+
+	    	const description = $('<h4></h4>');
+	    	description.html('Description:<p>'+test['description'] + "</p>");
+
+	    	const output = $('<div class="highlighter-rouge"><div class="highlight">\
+	    		<pre class="highlight" style="white-space:pre-wrap; overflow-y: scroll; overflow-x:hidden; height: 300px;">\
+	    		<code style="color:white;font-family:monospace;">'+test['log']+'</code></pre></div></div>');
+	    	drawer.append(description);
+	    	drawer.append(output);
+
+	    	const row = $("<div class='row'></div>");
+
+			row.append(wrapper);
+	    	row.append(drawer);
+
+	    	wrapper.click(function() {
+	    		if (drawer.hasClass('hidden')) {
+	    			drawer.show('slide', {direction: 'down', easing: 'easeOutBounce'}, 200)
+	    		} else {
+	    			drawer.hide('slide', {direction: 'up', easing: 'easeOutBounce'}, 50)
+	    		}
+	    		drawer.toggleClass('hidden')
+	    	});
+
+	    	test_class.append(row);
+	    }
+	    $('.test-drawer').hide();
+	}
+
+	function update_page(ag_run) {
+		populate_tests(ag_run["testcases"]);
+		$("#timestamp").empty();
+		$("#timestamp").text(ag_run["timestamp"]);
+
+		var scored = 0;
+		var total = 0;
+		for(var i = 0; i < ag_run["testcases"].length; ++i) {
+			const test = ag_run["testcases"][i];
+			scored += test["ptsEarned"];
+			total += test["ptsPossible"];
+		}
+
+		$("#total_score").text(""+scored);
+		$("#total_points").text(""+total);
+		const files = ag_run["checksum"].split("\n");
+		const new_hashes = files.map(function (e){
+			const split = e.split(" ");
+			split[0] = split[0].slice(0, 7);
+			return split.join(" ");
+		}).join("\n");
+		$('#sha1').text(""+new_hashes);
+		$("#time").text(ag_run["timestamp"]);
+
+		const revision = $('#revision');
+		revision.empty();
+		const link = $('<a class="fancy-link"></a>');
+		link.attr('href', './?p='+ag_run["revision"]);
+		link.text(ag_run["revision"]);
+		revision.append(link);
+
+	}
+
+	function add_nav_stamps(runs) {
+		for(var i = 0; i < runs.length; ++i) {
+			const link = $('<a class="navbar-link"></a>');
+			link.text(runs[i]["timestamp"]);
+			link.click(function(run) {
+				return function (event) {
+					event.preventDefault();
+					update_page(run);
+				}}(runs[i]));
+			const elem = $('<li></li>');
+			elem.append(link);
+
+			$('#nav-list').append(elem);
+		}
+	}
+
+	/* Use ?v=... so that the browser cache gets busted
+	meaning that results.json is a forced update everytime
+	this will reduce issues where people see cached reports */
+
+	$.get( "./results.json?v="+(new Date()).getTime(), function(data) {
+		data = JSON.parse(data);
+		data.sort(function(a, b){
+			const a_date = new Date(a['timestamp'].replace(" ", "T"));
+			const b_date = new Date(b['timestamp'].replace(" ", "T"));
+			const a_time = a_date.getTime();
+			const b_time = b_date.getTime();
+			if (a_time < b_time) {
+				return -1;
+			} else if (a_time > b_time) {
+				return 1;
+			}
+			return 0;
+		});
+		add_nav_stamps(data);
+		const latest = data[data.length-1];
+		update_page(latest);
+	})
+	.fail(function(err) {
+		const status = err.status;
+		if (status >= 400 && status <= 499) {
+			$('#client_error').removeClass('hidden');
+		} else if (status >= 500) {
+			$('#server_error').removeClass('hidden');
+		} else {
+			$('#offline').removeClass('hidden');
+		}
+		$('#main').addClass('hidden');
+	});
+
+});</script>
+  </body>
+</html>

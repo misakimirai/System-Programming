@@ -1,0 +1,93 @@
+/**
+* Pied Piper Lab
+* CS 241 - Spring 2018
+*/
+
+#include "pied_piper.h"
+#include "utils.h"
+#include <fcntl.h>
+#include <fcntl.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+#include <unistd.h>
+#define TRIES 3
+
+int pied_piper(int input_fd, int output_fd, char **executables) {
+    // Your code goes here...
+    if (input_fd < 0) {
+      input_fd = 0;
+    }
+    if (output_fd < 0) {
+      input_fd = 1;
+    }
+    int commands = 0;
+    while (executables[commands]) {
+      commands++;
+    }
+    int temps = 0;
+    int fail = 0;
+    pid_t children[commands];
+    int status[commands];
+    char err_info[commands][100];
+    while (temps < 3) {
+      for (int i = 0; i < commands; i++) {
+        int p[2];
+        int p_err[2];
+        pipe(p);
+        pipe(p_err);
+        children[i] = fork();
+        if (child[i]) {
+          // I am the parent
+          close(p[1]);
+          close(p_err[1]);
+          waitpid(child[i], status + i, 0);
+          dup2(p[0], 0);
+          read(p_err[0], err_info[i], 1000);
+        }
+        else {
+          // I am the child
+          close(p[0]);
+          close(p_err[0]);
+          if (!i) {
+            dup2(input_fd, 0);
+          }
+          if (i == commands - 1) {
+            dup2(output_fd, 1);
+          }
+          else {
+            dup2(p[1], 1);
+          }
+          dup2(p_err[1], 2);
+          exec_command(executables[i]);
+          exit(1);
+        }
+      }
+      fail = 0;
+      for (int i = 0; i < num_cmds; i++) {
+        if (WEXITSTATUS(status[i])) {
+          temps++;
+          fail = 1;
+          break;
+        }
+      }
+      if (!fail) {
+        break;
+      }
+    }
+    if (fail) {
+      failure_information fail_info[commands];
+      for (int i = 0; i < commands; i++) {
+        fail_info[i].command = executables[i];
+        fail_info[i].status = status[i];
+        fail_info[i].error_message = err_info[i];
+      }
+      print_failure_report(fail_info, commands);
+      return EXIT_OUT_OF_RETRIES;
+    }
+    return EXIT_SUCCESS;
+}
